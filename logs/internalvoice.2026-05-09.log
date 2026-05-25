@@ -1,0 +1,68 @@
+2026-05-09T00:20:51.111240Z  INFO internalvoice: InternalVoice starting
+2026-05-09T00:20:51.493650Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed: HTTP error: 404 Not Found
+2026-05-09T00:20:52.910879Z  INFO internalvoice: Gemini said text=You have several disks that are running low on space, including Elements, Seadrive, and G-DRIVE mobile with Thunderbolt. You should consider freeing up some space on these drives. priority=Some("medium")
+2026-05-09T00:22:23.778681Z  INFO internalvoice: shutdown signal received
+2026-05-09T00:22:23.778791Z  INFO internalvoice: InternalVoice stopped
+2026-05-09T00:22:27.806386Z  INFO internalvoice: InternalVoice starting
+2026-05-09T00:22:28.095067Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed: HTTP error: 404 Not Found
+2026-05-09T00:22:29.358196Z  INFO internalvoice: Gemini said text=You have several disks that are running low on space, including Elements, Seadrive, and G-DRIVE mobile with Thunderbolt. You should consider freeing up some space on these drives. priority=Some("medium")
+2026-05-09T00:22:44.112424Z  INFO internalvoice: shutdown signal received
+2026-05-09T00:22:44.112525Z  INFO internalvoice: InternalVoice stopped
+2026-05-09T00:25:32.060976Z  INFO internalvoice: InternalVoice starting
+2026-05-09T00:25:32.345904Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed: HTTP error: 404 Not Found
+2026-05-09T00:25:33.457695Z  INFO internalvoice: Gemini said text=You have several disks that are running low on space. The Elements drive is at 1.7% free space, Seadrive is at 10.7%, and G-DRIVE mobile is at 14.3%. You should free up some space on these drives. priority=Some("medium")
+2026-05-09T00:27:41.741510Z  INFO internalvoice: Gemini said text=Your Elements drive is critically low on space, with only 1.7% free. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T00:28:59.028145Z  INFO internalvoice: shutdown signal received
+2026-05-09T00:28:59.029318Z  INFO internalvoice: InternalVoice stopped
+2026-05-09T00:29:10.011566Z  INFO internalvoice: InternalVoice starting
+2026-05-09T00:29:10.315983Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed: HTTP error: 404 Not Found
+2026-05-09T00:29:13.165717Z  INFO internalvoice: InternalVoice said text=You have several disks that are running low on space, including Elements, Seadrive, and G-DRIVE mobile with Thunderbolt. Please consider freeing up some space on these drives. priority=Some("medium")
+2026-05-09T00:30:52.662175Z  INFO internalvoice: shutdown signal received
+2026-05-09T00:30:52.662789Z  INFO internalvoice: InternalVoice stopped
+2026-05-09T00:37:26.510413Z  INFO internalvoice: InternalVoice starting
+2026-05-09T00:37:26.869657Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed: HTTP error: 404 Not Found
+2026-05-09T00:37:28.077729Z  INFO internalvoice: InternalVoice said text=You have several disks that are running low on space, including Elements, Seadrive, and G-DRIVE mobile with Thunderbolt. You should consider freeing up space on these drives. priority=Some("medium")
+2026-05-09T00:39:29.213082Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("medium")
+2026-05-09T00:41:32.267613Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("medium")
+2026-05-09T00:43:34.862419Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("medium")
+2026-05-09T00:45:38.611449Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T00:47:41.607248Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("medium")
+2026-05-09T00:49:44.385089Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T00:51:47.536390Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T00:53:49.974727Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("medium")
+2026-05-09T00:55:52.463413Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T00:57:57.051132Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T00:59:59.562751Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:02:02.105390Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:04:05.124025Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:06:08.502819Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 190
+2026-05-09T01:08:21.550382Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:10:24.747132Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:12:27.496306Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:14:31.060243Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:16:33.702125Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:18:36.654173Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:20:40.522702Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 190
+2026-05-09T01:22:43.234296Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:24:45.764090Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:26:50.468717Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:28:53.298820Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:30:56.257318Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:33:00.051281Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:35:02.490436Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:37:05.046652Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:39:08.027343Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:41:12.541885Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:43:10.209293Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("medium")
+2026-05-09T01:45:12.698387Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:47:15.119047Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:49:18.545271Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:51:21.619002Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:53:24.287081Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 190
+2026-05-09T01:55:28.695665Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:57:31.321700Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T01:59:32.856947Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T02:01:36.607162Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T02:03:39.058223Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T02:05:42.372383Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")
+2026-05-09T02:07:47.617047Z  INFO internalvoice: InternalVoice said text=Your Elements drive is critically low on space, with only 1.7% remaining. You should free up space on this drive immediately. priority=Some("high")

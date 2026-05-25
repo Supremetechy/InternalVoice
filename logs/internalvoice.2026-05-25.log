@@ -1,0 +1,28 @@
+2026-05-25T22:18:52.068844Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:18:52.577707Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed: HTTP error: 404 Not Found
+2026-05-25T22:18:54.048212Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 257
+2026-05-25T22:20:57.556293Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 231
+2026-05-25T22:21:16.218296Z  INFO internalvoice: shutdown signal received
+2026-05-25T22:21:16.218451Z  INFO internalvoice: InternalVoice stopped
+2026-05-25T22:24:12.797154Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:24:13.319502Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed url=wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key=<redacted> error=HTTP error: 404 Not Found
+2026-05-25T22:24:14.708258Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 249
+2026-05-25T22:25:58.450678Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:25:58.920557Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed url=wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key=<redacted> error=HTTP error: 404 Not Found
+2026-05-25T22:26:00.268810Z  WARN internalvoice: Failed to parse interruption decision error=expected value at line 1 column 1
+2026-05-25T22:26:15.135195Z  INFO internalvoice: shutdown signal received
+2026-05-25T22:26:15.135430Z  INFO internalvoice: InternalVoice stopped
+2026-05-25T22:26:18.669447Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 268
+2026-05-25T22:27:12.858644Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:27:13.280339Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed url=wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key=<redacted> error=HTTP error: 404 Not Found
+2026-05-25T22:27:14.713519Z  WARN internalvoice: Failed to parse interruption decision error=expected value at line 1 column 1
+2026-05-25T22:28:23.443402Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 385
+2026-05-25T22:28:32.380091Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:28:32.857301Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed url=wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key=<redacted> error=HTTP error: 404 Not Found
+2026-05-25T22:28:34.320437Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 230 raw_response={"output_format":{"priority":"null","setup_info":{"completed":false,"frequency":"none"},"speak":true,"utterance":"Your CPU usage is a bit high, and your memory is at 71%. Consider closing some applications to free up resources."}}
+2026-05-25T22:29:30.251558Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:29:30.939870Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed url=wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key=<redacted> error=HTTP error: 404 Not Found
+2026-05-25T22:29:32.621132Z  WARN internalvoice::config: INTERNALVOICE_CONFIG points to /Users/ethertechnology/Desktop/InternalVoice/config/config.toml, but the file does not exist; falling back
+2026-05-25T22:29:32.628756Z  INFO internalvoice: Alert preferences updated frequency=None
+2026-05-25T22:29:32.628992Z  INFO internalvoice: InternalVoice said text=Your system is running smoothly with 83% battery. You might consider closing the 'Code Helper' applications to free up some resources. priority=Some("null")
+2026-05-25T22:30:38.854395Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 219 raw_response={"output_format":{"priority":"low","setup_info":{"completed":false,"frequency":"none"},"speak":true,"utterance":"Your system is running smoothly with 83% battery. You can close some applications to free up resources."}}

@@ -1,0 +1,45 @@
+{
+  "collected_at": "2026-05-21T21:26:16.568119Z",
+  "machine": {
+    "hostname": "Supremes-MacBook-Pro.local",
+    "os_name": "Darwin",
+    "kernel_version": "22.6.0",
+    "uptime_secs": 89850
+  },
+  "cpu": {
+    "total_usage_percent": 13.22021484375,
+    "per_core_usage_percent": [
+      13.22021484375,
+      13.22021484375,
+      13.22021484375,
+      13.22021484375,
+      13.22021484375,
+      13.22021484375,
+      13.22021484375,
+      13.22021484375
+    ],
+    "temperature_celsius": null
+  },
+  "memory": {
+    "total_bytes": 0,
+    "used_bytes": 0,
+    "swap_total_bytes": 0,
+    "swap_used_bytes": 0,
+    "used_percent": 0.0
+  },
+  "storage": [
+    {
+      "name": "/",
+      "mount_point": "/",
+      "total_bytes": 250685575168,
+      "available_bytes": 86232408064,
+      "used_percent": 65.60136816559536
+    }
+  ],
+  "battery": null,
+  "processes": [],
+  "alerts": [],
+  "container_runtime": null,
+  "network": null,
+  "peripheral_devices": null
+}

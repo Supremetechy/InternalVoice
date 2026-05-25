@@ -1,0 +1,107 @@
+[service]
+sample_interval_secs = 5
+gemini_timeout_secs = 12
+gemini_model = "gemini-2.5-flash-lite"
+gemini_api_key = "AIzaSyDVU9jra3ATfU8Q00IhenU5X1w5f1Hvu5I"
+debounce_millis = 300
+max_prompt_tokens_hint = 2048
+cache_ttl_secs = 900
+max_log_files = 5
+log_dir = "logs"
+max_log_file_size_mb = 10
+gemini_live_ws_url = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key={key}"
+
+[secrets]
+env_var = "GEMINI_API"
+keyring_service = "InternalVoice"
+keyring_account = "google-generative-ai"
+
+[limits]
+requests_per_minute = 20
+max_cpu_percent = 70.0
+max_memory_mb = 512
+breaker_failure_threshold = 5
+breaker_reset_secs = 30
+system_telemetry_interval_secs = 60
+
+[narration]
+min_announcement_interval_secs = 120
+voice_enabled = false
+max_processes = 5
+style = "brief"
+
+[policy]
+notify_on_battery_below = 20.0
+notify_on_disk_below = 15.0
+notify_on_cpu_above = 85.0
+notify_on_memory_above = 85.0
+
+[policy.system_telemetry.host_metadata]
+hostname = "string"
+os_version = "string"
+kernel_version = "string"
+uptime_seconds = "integer"
+cpu_model = "string"
+total_memory_bytes = "integer"
+
+[policy.system_telemetry.hardware_resources]
+cpu_usage_percent = "float"
+memory_usage_percent = "float"
+
+[[policy.system_telemetry.hardware_resources.storage]]
+mount_point = "string"
+filesystem = "string"
+total_bytes = "integer"
+used_bytes = "integer"
+read_iops = "integer"
+write_iops = "integer"
+
+[[policy.system_telemetry.running_processes]]
+pid = "integer"
+name = "string"
+user = "string"
+cpu_percent = "float"
+memory_percent = "float"
+command_line = "string"
+start_time = "timestamp"
+
+[policy.system_telemetry.container_runtime]
+engine = "docker"
+
+[[policy.system_telemetry.container_runtime.containers]]
+container_id = "string"
+image = "string"
+status = "string"
+created = "timestamp"
+ports = ["string"]
+
+[[policy.system_telemetry.network.active_connections]]
+protocol = "tcp/udp"
+local_address = "string"
+local_port = "integer"
+remote_address = "string"
+remote_port = "integer"
+state = "established/listen"
+process_name = "string"
+
+[[policy.system_telemetry.network.interfaces]]
+name = "string"
+mac_address = "string"
+ip_addresses = ["string"]
+bytes_sent = "integer"
+bytes_received = "integer"
+
+[[policy.system_telemetry.peripheral_devices.bluetooth_connected]]
+device_name = "string"
+mac_address = "string"
+class = "string"
+connected_at = "timestamp"
+
+[[policy.system_telemetry.peripheral_devices.usb_devices]]
+vendor_id = "string"
+product_id = "string"
+serial = "string"
+
+[alerts]
+frequency = "none"
+setup_completed = false

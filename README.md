@@ -11,6 +11,9 @@ This repository now contains a build-oriented service scaffold:
 - Normalized `SystemState` model published to JSON
 - Policy engine that only narrates actionable conditions
 - Gemini client wrapper with HTTP reuse, streaming responses, timeout, rate limiting, prompt cache, and circuit breaker behavior
+- Gemini Live API transport for duplex voice interaction
+- System Preference Alerts: Setup periodic notifications (daily, hourly, or minute-by-minute) for system health and resource updates
+- AI Optimization Suggestions: Actionable advice from Gemini on optimizing system resources based on real-time data
 - Secret lookup via environment variable first, then OS-native keyring
 - Least-privilege and allow-list guardrails around model-driven actions
 
@@ -20,7 +23,7 @@ As of March 28, 2026, the Google AI for Developers Gemini API model guide lists 
 
 - https://ai.google.dev/gemini-api/docs/models/gemini
 
-This scaffold uses the Gemini Developer API `v1beta` `streamGenerateContent` endpoint, so the default config now uses `gemini-2.5-flash-lite`. If you want native low-latency audio sessions next, the right follow-up is a WebSocket or bidirectional streaming transport module using a Live API-capable model instead of the text-generation endpoint.
+This scaffold uses the Gemini Developer API `v1beta` `streamGenerateContent` endpoint, so the default config now uses `gemini-3-flash-preview`. If you want native low-latency audio sessions next, the right follow-up is a WebSocket or bidirectional streaming transport module using a Live API-capable model instead of the text-generation endpoint.
 
 ## Layout
 
