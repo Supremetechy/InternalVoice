@@ -1024,3 +1024,828 @@
 2026-05-26T06:08:20.631988Z  INFO internalvoice: InternalVoice starting
 2026-05-26T06:08:21.059460Z  INFO internalvoice: Established Gemini Live duplex transport
 2026-05-26T06:08:21.807504Z  INFO internalvoice: Gemini Live session ready
+2026-05-26T06:09:57.680007Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:10:23.190704Z  INFO internalvoice: InternalVoice said text=**Confirming Activity Status**
+
+I confirm I am currently processing information. There are no system-level actionable conditions to report. I am adhering to the defined system monitor persona. I await further input.
+
+
+
+2026-05-26T06:10:23.190951Z DEBUG internalvoice::tts: tts: speaking utterance text=**Confirming Activity Status**
+
+I confirm I am currently processing information. There are no system-level actionable conditions to report. I am adhering to the defined system monitor persona. I await further input.
+
+
+
+2026-05-26T06:10:27.451141Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T06:10:35.506200Z  INFO internalvoice: InternalVoice said text=**Assessing Unclear Input**
+
+I've analyzed the user's garbled input. While the text is corrupted, the user explicitly stated no system-level issues are present. My current assessment is "no critical conditions detected". I will suggest regularly monitoring background processes to maintain optimal system performance, according to my optimization protocols.
+
+
+
+2026-05-26T06:10:35.838847Z  INFO internalvoice: InternalVoice said text=**Evaluating Input Ambiguity**
+
+I'm processing the mixed information. Although the provided input is corrupted, the user confirmed no system-level issues exist. My primary judgment continues to be "no critical conditions detected." I recommend monitoring background processes.
+
+
+
+2026-05-26T06:10:37.467344Z DEBUG internalvoice::tts: tts: speaking utterance text=**Assessing Unclear Input**
+
+I've analyzed the user's garbled input. While the text is corrupted, the user explicitly stated no system-level issues are present. My current assessment is "no critical conditions detected". I will suggest regularly monitoring background processes to maintain optimal system performance, according to my optimization protocols.
+
+
+
+2026-05-26T06:10:45.106046Z DEBUG internalvoice::tts: tts: speaking utterance text=**Evaluating Input Ambiguity**
+
+I'm processing the mixed information. Although the provided input is corrupted, the user confirmed no system-level issues exist. My primary judgment continues to be "no critical conditions detected." I recommend monitoring background processes.
+
+
+
+2026-05-26T06:10:46.538499Z  INFO internalvoice: shutdown signal received
+2026-05-26T06:10:46.538589Z  INFO internalvoice: InternalVoice stopped
+2026-05-26T06:11:16.687039Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T06:11:43.368127Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T06:11:43.680877Z DEBUG internalvoice::audio: Default input config: channels=2, sample_rate=44100, format=F32
+2026-05-26T06:11:43.823748Z  INFO internalvoice: InternalVoice starting
+2026-05-26T06:11:44.363938Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T06:11:45.105923Z  INFO internalvoice: Gemini Live session ready
+2026-05-26T06:11:51.485443Z  INFO internalvoice: InternalVoice said text=**Assessing Input Nuance**
+
+I've analyzed the user's "Let's go" input. As a brief system monitor narrator, I find no actionable conditions. There's nothing to optimize or report based on this casual phrase. I'm maintaining a neutral stance, avoiding unnecessary warnings.
+
+
+
+2026-05-26T06:11:51.485765Z DEBUG internalvoice::tts: tts: speaking utterance text=**Assessing Input Nuance**
+
+I've analyzed the user's "Let's go" input. As a brief system monitor narrator, I find no actionable conditions. There's nothing to optimize or report based on this casual phrase. I'm maintaining a neutral stance, avoiding unnecessary warnings.
+
+
+
+2026-05-26T06:12:00.839943Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T06:12:00.880428Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:13:15.202426Z  WARN internalvoice: WebSocket closed by server reason=Internal error encountered.
+2026-05-26T06:13:15.232484Z  INFO internalvoice: InternalVoice stopped
+2026-05-26T06:14:03.964208Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:16:06.913423Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:18:09.857295Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:20:12.947305Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:22:16.222599Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:24:19.693217Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:26:22.639125Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:28:25.494664Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:30:28.435897Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:32:31.390678Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:34:34.336099Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:36:37.277627Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:38:40.573720Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:40:43.601418Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:42:46.639656Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:44:50.124099Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:46:52.999908Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:48:55.925498Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:50:58.962821Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:53:01.915990Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:55:04.922092Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:57:07.856715Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T06:59:11.027121Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:01:13.968622Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:03:16.977357Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:05:19.947329Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:07:22.870047Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:09:25.820281Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:11:28.832045Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:13:31.775073Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:15:34.723822Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:17:37.670332Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:19:40.616035Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:21:43.608869Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:23:46.507674Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:25:49.450022Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:27:52.399655Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:29:53.335684Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:29:53.845448Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T07:29:54.271365Z DEBUG internalvoice::audio: Default input config: channels=2, sample_rate=44100, format=F32
+2026-05-26T07:29:54.672586Z  INFO internalvoice: InternalVoice starting
+2026-05-26T07:29:55.159111Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T07:29:55.676361Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:29:56.015782Z  INFO internalvoice: Gemini Live session ready
+2026-05-26T07:30:04.196094Z  INFO internalvoice: InternalVoice said text=**Assessing System Status**
+
+The system is currently operating normally. No critical issues have been detected since the last check, which was the first check. For optimal performance, I suggest considering routine file cleanup to maintain system efficiency.
+
+
+
+2026-05-26T07:30:04.196303Z DEBUG internalvoice::tts: tts: speaking utterance text=**Assessing System Status**
+
+The system is currently operating normally. No critical issues have been detected since the last check, which was the first check. For optimal performance, I suggest considering routine file cleanup to maintain system efficiency.
+
+
+
+2026-05-26T07:30:16.767460Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T07:30:23.204939Z  INFO internalvoice: InternalVoice said text=**Confirming Normal System Status**
+
+I'm confirming the system remains stable. The user's audio suggests a repetition, mirroring a prior instruction regarding file cleanup routines. I'm maintaining status quo; I'll avoid repeating the same suggestion unless there is new information presented in the audio.
+
+
+
+2026-05-26T07:30:23.205169Z DEBUG internalvoice::tts: tts: speaking utterance text=**Confirming Normal System Status**
+
+I'm confirming the system remains stable. The user's audio suggests a repetition, mirroring a prior instruction regarding file cleanup routines. I'm maintaining status quo; I'll avoid repeating the same suggestion unless there is new information presented in the audio.
+
+
+
+2026-05-26T07:30:30.645659Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T07:30:44.624686Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T07:30:48.431026Z  INFO internalvoice: InternalVoice said text=**Confirming System Stability**
+
+I understand the confirmation of the system's normalcy. My focus remains on maintaining the established stylistic constraints and avoiding unnecessary repetition. The current system status is normal, and I am prepared for continued operation as needed.
+
+
+
+2026-05-26T07:30:48.431306Z DEBUG internalvoice::tts: tts: speaking utterance text=**Confirming System Stability**
+
+I understand the confirmation of the system's normalcy. My focus remains on maintaining the established stylistic constraints and avoiding unnecessary repetition. The current system status is normal, and I am prepared for continued operation as needed.
+
+
+
+2026-05-26T07:30:51.053901Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T07:31:02.623079Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T07:31:08.981945Z  INFO internalvoice: InternalVoice said text=**Confirming System Normalcy**
+
+I understand the stylistic guidelines and confirm the system remains in a normal, stable condition. My responses will adhere to the specified brevity unless conditions change dramatically. I am ready to continue accordingly.
+
+
+
+2026-05-26T07:31:08.982113Z DEBUG internalvoice::tts: tts: speaking utterance text=**Confirming System Normalcy**
+
+I understand the stylistic guidelines and confirm the system remains in a normal, stable condition. My responses will adhere to the specified brevity unless conditions change dramatically. I am ready to continue accordingly.
+
+
+
+2026-05-26T07:31:09.691118Z  INFO internalvoice: shutdown signal received
+2026-05-26T07:31:09.709623Z  INFO internalvoice: InternalVoice stopped
+2026-05-26T07:31:57.714688Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:31:59.875548Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:34:04.186890Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:35:03.641799Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:36:08.390023Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:37:12.971738Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:38:12.647388Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:39:58.147681Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:40:16.642267Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:42:01.515501Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T07:42:01.877823Z DEBUG internalvoice::audio: Default input config: channels=2, sample_rate=44100, format=F32
+2026-05-26T07:42:02.099279Z  INFO internalvoice: InternalVoice starting
+2026-05-26T07:42:02.550382Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:42:02.652377Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T07:42:03.460641Z  INFO internalvoice: Gemini Live session ready
+2026-05-26T07:42:10.220445Z  INFO internalvoice: InternalVoice said text=**Assessing System Conditions**
+
+I've evaluated the system state, assuming normal operating conditions as no specific data was provided. No critical issues were detected during the assessment. I recommend optimizing background processes for improved efficiency to maintain this optimal system status.
+
+
+
+2026-05-26T07:42:10.220659Z DEBUG internalvoice::tts: tts: speaking utterance text=**Assessing System Conditions**
+
+I've evaluated the system state, assuming normal operating conditions as no specific data was provided. No critical issues were detected during the assessment. I recommend optimizing background processes for improved efficiency to maintain this optimal system status.
+
+
+
+2026-05-26T07:42:17.643855Z  INFO internalvoice: shutdown signal received
+2026-05-26T07:42:17.643975Z  INFO internalvoice: InternalVoice stopped
+2026-05-26T07:42:20.968551Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:44:08.380318Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:44:26.933331Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:46:31.359233Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:46:33.275020Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:47:11.025846Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T07:47:11.459491Z DEBUG internalvoice::audio: Default input config: channels=2, sample_rate=44100, format=F32
+2026-05-26T07:47:11.696510Z  INFO internalvoice: InternalVoice starting
+2026-05-26T07:47:12.166878Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T07:47:12.968567Z  INFO internalvoice: Gemini Live session ready
+2026-05-26T07:47:18.187591Z  INFO internalvoice: InternalVoice said text=**Analyzing System State**
+
+I've checked the system metrics. The key takeaway is the high memory usage, currently at 85%. I'm recommending closing some memory-intensive applications. Disk space is sufficient, CPU is moderate, and battery is good.
+
+
+
+2026-05-26T07:47:18.727165Z  INFO internalvoice: InternalVoice said text=**Assessing System Capacity**
+
+I'm monitoring the system resources. Currently, I've observed that CPU load is moderate, around 45-55%, disk space is sufficient, and battery levels are good at 75%. The critical metric remains high memory utilization, still at 85%. I will stick with the current recommendation to close some apps.
+
+
+
+2026-05-26T07:47:32.400210Z  INFO internalvoice: shutdown signal received
+2026-05-26T07:47:32.400327Z  INFO internalvoice: InternalVoice stopped
+2026-05-26T07:48:35.696368Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:48:37.553953Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:50:39.939640Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:51:17.748929Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:52:44.078506Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:53:42.629612Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:54:48.682953Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:55:00.376496Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T07:55:00.819372Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-26T07:55:01.091514Z  INFO internalvoice: InternalVoice starting
+2026-05-26T07:55:01.616480Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T07:55:02.449348Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "outputSampleRate" at 'setup.generation_config.speech_config': Cannot find fiel
+2026-05-26T07:55:02.478609Z  INFO internalvoice: InternalVoice stopped
+2026-05-26T07:55:47.133189Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:56:52.923313Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:57:22.153782Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T07:57:22.528858Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-26T07:57:22.783001Z  INFO internalvoice: InternalVoice starting
+2026-05-26T07:57:23.225295Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T07:57:24.039523Z  INFO internalvoice: Gemini Live session ready
+2026-05-26T07:57:30.693981Z  INFO internalvoice: InternalVoice said text=**Assessing System Conditions**
+
+I've checked the system status and identified two actionable conditions: high memory usage and critically low disk space. I'm prioritizing disk space as the immediate concern, with a recommendation to free up space. This is a crucial area for immediate improvement.
+
+
+
+2026-05-26T07:57:46.180629Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T07:57:46.438708Z  INFO internalvoice: InternalVoice said text=**Acknowledge Critical Conditions**
+
+I'm aware the previous update was essentially a repeat, likely due to technical issues. I must maintain brevity, but stress that high memory and low disk space are still critical. Re-iterating the suggestion to optimize the environment is essential. I'm focusing on concise, vital information delivery.
+
+
+
+2026-05-26T07:57:51.576189Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T07:57:54.506772Z  INFO internalvoice: shutdown signal received
+2026-05-26T07:57:54.506882Z  INFO internalvoice: InternalVoice stopped
+2026-05-26T07:58:57.484895Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:01:00.584722Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:03:03.785467Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:05:06.717704Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:07:09.925264Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:09:12.873905Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:11:16.005764Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:13:19.315955Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:13:40.484365Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T08:13:40.801527Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-26T08:13:40.949022Z  INFO internalvoice: InternalVoice starting
+2026-05-26T08:13:41.405685Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T08:13:42.148255Z  INFO internalvoice: Gemini Live session ready
+2026-05-26T08:13:47.702385Z  INFO internalvoice: InternalVoice said text=**Assessing System Status**
+
+Okay, I'm working on interpreting that input about "direct audio" and its connection to system status. Right now, based on the limited information, all core system metrics appear normal: CPU load, memory usage, disk space, battery, and network stability. No immediate critical alerts are triggered based on the current data I have. I am focusing on what "direct audio" implies and how that affects status interpretation.
+
+
+
+2026-05-26T08:13:48.310288Z  INFO internalvoice: InternalVoice said text=**Interpreting User Intent**
+
+I'm now focusing on the user's intent related to "direct audio" and its impact on system status. The input's fragmentation necessitates interpretation. The immediate priority is summarizing key system conditions and offering optimization suggestions. Current system states all appear normal, and there are no immediate critical alerts, so I am suggesting actions to optimize.
+
+
+
+2026-05-26T08:13:59.820708Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T08:13:59.821427Z  INFO internalvoice: InternalVoice said text=**Maintaining System Status**
+
+There's no need for an update. The system status remains normal, just as before. I have observed the lack of change and am waiting for new information or a specific request. Repeating the same report would be redundant and violate the established guidelines.
+
+
+
+2026-05-26T08:13:59.821951Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T08:14:07.619679Z  INFO internalvoice: InternalVoice said text=**Reiterate System Status**
+
+The system continues to report a normal status. I haven't identified any new conditions requiring reporting. Let's re-emphasize that closing any unused applications might optimize performance and address the reported feedback.
+
+
+
+2026-05-26T08:14:22.342033Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T08:14:22.343042Z  INFO internalvoice: InternalVoice said text=**Addressing Perceived Slowness**
+
+I'm focusing on the user's perception of "slow" despite balanced resources. Even though the system's status is normal, I must suggest a simple, actionable optimization. The user may perceive slowness. I'm prioritizing direct action here to improve the situation and clarify the system's response.
+
+
+
+2026-05-26T08:14:32.742280Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T08:14:33.418227Z  INFO internalvoice: shutdown signal received
+2026-05-26T08:14:33.418318Z  INFO internalvoice: InternalVoice stopped
+2026-05-26T08:15:23.119985Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+

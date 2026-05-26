@@ -237,22 +237,21 @@ impl GeminiLiveClient {
         }
     }
 
-    pub async fn connect(&self, system_instruction: Option<String>) -> Result<WebSocketStream<MaybeTlsStream<TcpStream>>> {
-        let url = self
-            .ws_url_template
-            .replace("{key}", &self.api_key);
-
-
+    pub async fn connect(
+        &self,
+        system_instruction: Option<String>,
+        _output_sample_rate: u32,
+    ) -> Result<WebSocketStream<MaybeTlsStream<TcpStream>>> {
+        let url = self.ws_url_template.replace("{key}", &self.api_key);
         let redacted_url = url.replace(&self.api_key, "<redacted>");
-        let (mut ws_stream, _) = connect_async(url.clone()).await.map_err(|e| {
+
+        let (mut ws_stream, _) = connect_async(url).await.map_err(|e| {
             InternalVoiceError::Gemini(format!(
                 "WebSocket connection failed url={} error={}",
                 redacted_url, e
             ))
         })?;
 
-
-        // Send setup message
         let setup = LiveSetup {
             setup: SetupConfigLive {
                 model: format!("models/{}", self.model),

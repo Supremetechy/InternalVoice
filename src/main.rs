@@ -77,7 +77,8 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
         Some(policy.system_instructions(&config))
     };
 
-    match context.gemini_live.connect(system_instruction).await {
+    let output_rate = context.audio_engine.output_sample_rate();
+    match context.gemini_live.connect(system_instruction, output_rate).await {
         Ok(mut ws_stream) => {
             info!("Established Gemini Live duplex transport");
             println!("  Connected.\n");
@@ -145,13 +146,15 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                     Ok(ServerMessage::ServerContent { model_turn, turn_complete, .. }) => {
                                         if let Some(content) = model_turn {
                                             for part in content.parts {
-                                                // Audio response from Gemini Live
+                                                // Gemini Live is the voice — play its audio directly.
+                                                // TTS is never used while the WebSocket is alive.
                                                 if let Some(audio) = part.inline_data {
-                                                    if let Err(e) = context.audio_engine.play_audio(&audio.data) {
+                                                    let rate = parse_audio_rate(&audio.mime_type);
+                                                    if let Err(e) = context.audio_engine.play_audio(&audio.data, rate) {
                                                         error!(error = %e, "Failed to play audio response");
                                                     }
                                                 }
-                                                // Text transcript / text-mode response
+                                                // Show any text content on the console only (no TTS).
                                                 if let Some(response_text) = part.text {
                                                     if response_text.trim().is_empty() {
                                                         continue;
@@ -165,21 +168,13 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                                             println!("  [Setup] Alert frequency set to {:?}.", config.alerts.frequency);
                                                             info!(frequency = ?config.alerts.frequency, "Alert preferences updated");
                                                         }
-                                                        if decision.speak {
-                                                            if let Some(utterance) = decision.utterance {
-                                                                println!("  [InternalVoice] {}", utterance);
-                                                                info!(text = %utterance, "InternalVoice said");
-                                                                if context.config.lock().await.narration.voice_enabled {
-                                                                    context.tts.speak(&utterance).await;
-                                                                }
-                                                            }
+                                                        if let Some(utterance) = decision.utterance {
+                                                            println!("  [InternalVoice] {}", utterance);
+                                                            info!(text = %utterance, "InternalVoice said");
                                                         }
                                                     } else {
                                                         println!("  [InternalVoice] {}", response_text);
                                                         info!(text = %response_text, "InternalVoice said");
-                                                        if context.config.lock().await.narration.voice_enabled {
-                                                            context.tts.speak(&response_text).await;
-                                                        }
                                                     }
                                                 }
                                             }
@@ -190,7 +185,8 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                     }
                                     Ok(ServerMessage::RealtimeInput { media_chunks }) => {
                                         for chunk in media_chunks {
-                                            if let Err(e) = context.audio_engine.play_audio(&chunk.data) {
+                                            let rate = parse_audio_rate(&chunk.mime_type);
+                                            if let Err(e) = context.audio_engine.play_audio(&chunk.data, rate) {
                                                 error!(error = %e, "Failed to play audio chunk");
                                             }
                                         }
@@ -354,6 +350,18 @@ async fn process_decision(context: Arc<ServiceContext>, decision: crate::policy:
 }
 
 use std::time::Duration;
+
+/// Extracts the sample rate from a MIME type string such as `audio/pcm;rate=24000`.
+/// Falls back to 24000 (Gemini Live default) when the field is absent or unparseable.
+fn parse_audio_rate(mime_type: &str) -> u32 {
+    mime_type
+        .split(';')
+        .find_map(|segment| {
+            let s = segment.trim();
+            s.strip_prefix("rate=").and_then(|v| v.parse().ok())
+        })
+        .unwrap_or(24000)
+}
 
 fn print_banner() {
     println!();

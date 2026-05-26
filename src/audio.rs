@@ -9,7 +9,10 @@ pub struct AudioEngine {
     input_device: cpal::Device,
     output_device: cpal::Device,
     input_config: cpal::SupportedStreamConfig,
-    sample_rate: u32,
+    /// Rate used when encoding microphone audio to send to Gemini (16 kHz PCM).
+    encode_rate: u32,
+    /// Native sample rate of the hardware output device.
+    output_native_rate: u32,
 }
 
 impl AudioEngine {
@@ -23,19 +26,32 @@ impl AudioEngine {
         let input_config = input_device.default_input_config()
             .map_err(|e| InternalVoiceError::Audio(format!("Failed to get default input config: {}", e)))?;
 
+        let output_native_rate = output_device
+            .default_output_config()
+            .map(|c| c.sample_rate().0)
+            .unwrap_or(44100);
+
         tracing::debug!(
-            "Default input config: channels={}, sample_rate={}, format={:?}",
+            "Input: channels={}, sample_rate={}, format={:?} | Output native rate: {}",
             input_config.channels(),
             input_config.sample_rate().0,
-            input_config.sample_format()
+            input_config.sample_format(),
+            output_native_rate,
         );
 
         Ok(Self {
             input_device,
             output_device,
             input_config,
-            sample_rate: 16000,
+            encode_rate: 16000,
+            output_native_rate,
         })
+    }
+
+    /// The hardware output device's native sample rate. Pass this to Gemini Live
+    /// so it can target the same rate and no resampling is required on playback.
+    pub fn output_sample_rate(&self) -> u32 {
+        self.output_native_rate
     }
 
     pub fn input_device_name(&self) -> Option<String> {
@@ -49,7 +65,7 @@ impl AudioEngine {
     pub fn start_recording(&self, tx: mpsc::Sender<String>) -> Result<cpal::Stream> {
         let sample_rate = self.input_config.sample_rate().0;
         let channels = self.input_config.channels();
-        let target_sample_rate = self.sample_rate;
+        let target_sample_rate = self.encode_rate;
 
         let stream = match self.input_config.sample_format() {
             cpal::SampleFormat::I16 => self.build_input_stream::<i16>(tx, channels, sample_rate, target_sample_rate)?,
@@ -104,22 +120,35 @@ impl AudioEngine {
         ).map_err(|e| InternalVoiceError::Audio(e.to_string()))
     }
 
-    pub fn play_audio(&self, base64_data: &str) -> Result<()> {
-        let decoded = general_purpose::STANDARD.decode(base64_data)
+    /// Play base64-encoded PCM audio that Gemini sent at `source_rate`.
+    /// The samples are resampled to the hardware's native rate so rodio
+    /// receives audio that already matches the device — no implicit resampling.
+    pub fn play_audio(&self, base64_audio: &str, source_rate: u32) -> Result<()> {
+        let decoded = general_purpose::STANDARD.decode(base64_audio)
             .map_err(|e| InternalVoiceError::Audio(format!("Base64 decode error: {}", e)))?;
 
-        // Convert bytes back to i16 samples
-        let samples: Vec<i16> = decoded.chunks_exact(2)
-            .map(|chunk| i16::from_le_bytes([chunk[0], chunk[1]]))
+        // Decode i16 LE PCM → f32 for resampling.
+        let f32_samples: Vec<f32> = decoded
+            .chunks_exact(2)
+            .map(|c| i16::from_le_bytes([c[0], c[1]]) as f32 / i16::MAX as f32)
             .collect();
 
-        // Play using rodio
+        // Resample from Gemini's rate to the hardware's native rate.
+        let resampled = resample(&f32_samples, source_rate, self.output_native_rate);
+
+        // Convert back to i16 for rodio.
+        let i16_samples: Vec<i16> = resampled
+            .into_iter()
+            .map(|s| (s.clamp(-1.0, 1.0) * i16::MAX as f32) as i16)
+            .collect();
+
         let (_stream, handle) = OutputStream::try_from_device(&self.output_device)
             .map_err(|e| InternalVoiceError::Audio(e.to_string()))?;
         let sink = Sink::try_new(&handle)
             .map_err(|e| InternalVoiceError::Audio(e.to_string()))?;
 
-        let buffer = SamplesBuffer::new(1, self.sample_rate, samples);
+        // Tell rodio the buffer is already at the device's native rate.
+        let buffer = SamplesBuffer::new(1, self.output_native_rate, i16_samples);
         sink.append(buffer);
         sink.sleep_until_end();
 
