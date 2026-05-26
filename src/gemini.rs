@@ -193,7 +193,7 @@ impl GeminiLiveClient {
     pub fn new(api_key: String, config: &AppConfig) -> Self {
         Self {
             api_key,
-            model: config.service.gemini_model.clone(),
+            model: config.service.gemini_live_model.clone(),
             ws_url_template: config.service.gemini_live_ws_url.clone(),
         }
     }

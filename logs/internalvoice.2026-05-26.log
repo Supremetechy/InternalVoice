@@ -1,0 +1,54 @@
+2026-05-26T00:00:42.350039Z  INFO internalvoice: InternalVoice starting
+2026-05-26T00:00:42.832670Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T00:00:42.834236Z ERROR internalvoice: service loop failed error=audio error: The requested stream configuration is not supported by the device.
+2026-05-26T00:01:20.130557Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T00:01:22.157723Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 404 Not Found: {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+2026-05-26T00:03:24.834888Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T00:03:26.578926Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 404 Not Found: {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+2026-05-26T00:03:48.318074Z  INFO internalvoice: InternalVoice starting
+2026-05-26T00:03:49.189202Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T00:03:49.190262Z ERROR internalvoice: service loop failed error=audio error: The requested stream configuration is not supported by the device.
+2026-05-26T00:05:29.339878Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T00:05:30.659289Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 404 Not Found: {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+

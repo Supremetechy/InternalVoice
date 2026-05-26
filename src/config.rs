@@ -45,6 +45,9 @@ pub struct ServiceConfig {
     pub gemini_timeout_secs: u64,
     pub gemini_model: String,
 
+    #[serde(default = "default_gemini_live_model")]
+    pub gemini_live_model: String,
+
     #[serde(default)]
     pub gemini_api_key: String,
 
@@ -61,6 +64,10 @@ pub struct ServiceConfig {
     /// for your account/model.
     #[serde(default = "default_gemini_live_ws_url")]
     pub gemini_live_ws_url: String,
+}
+
+fn default_gemini_live_model() -> String {
+    "gemini-2.0-flash-exp".to_string()
 }
 
 fn default_gemini_live_ws_url() -> String {
