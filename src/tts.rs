@@ -1,5 +1,5 @@
 use tokio::{process::Command, sync::mpsc};
-use tracing::{info, warn};
+use tracing::{debug, warn};
 
 /// Lightweight TTS engine backed by the platform's native speech facility.
 /// Utterances are queued and spoken sequentially so they never overlap.
@@ -12,7 +12,7 @@ impl TtsEngine {
         let (sender, mut receiver) = mpsc::channel::<String>(32);
         tokio::spawn(async move {
             while let Some(text) = receiver.recv().await {
-                info!(text = %text, "tts: speaking utterance");
+                debug!(text = %text, "tts: speaking utterance");
                 speak_platform(&text).await;
             }
         });

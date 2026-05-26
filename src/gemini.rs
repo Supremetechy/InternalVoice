@@ -58,6 +58,7 @@ struct Content<'a> {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Part<'a> {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<&'a str>,
@@ -66,6 +67,7 @@ pub struct Part<'a> {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Blob<'a> {
     pub mime_type: &'a str,
     pub data: &'a str,
@@ -96,15 +98,16 @@ pub struct ResponseContent {
 }
 
 #[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct ResponsePart {
     #[serde(default)]
     pub text: Option<String>,
     #[serde(default)]
-    #[allow(dead_code)]
     pub inline_data: Option<ResponseBlob>,
 }
 
 #[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct ResponseBlob {
     #[allow(dead_code)]
     pub mime_type: String,
@@ -200,13 +203,21 @@ struct RealtimeInput<'a> {
 pub enum ServerMessage {
     SetupComplete {},
     ServerContent {
-        model_turn: ResponseContent,
+        #[serde(default, rename = "modelTurn")]
+        model_turn: Option<ResponseContent>,
+        #[serde(default, rename = "turnComplete")]
+        turn_complete: bool,
+        #[serde(default, rename = "generationComplete")]
+        #[allow(dead_code)]
+        generation_complete: bool,
     },
     RealtimeInput {
+        #[serde(rename = "mediaChunks")]
         media_chunks: Vec<ResponseBlob>,
     },
     #[allow(dead_code)]
     ToolCall {
+        #[serde(rename = "functionCalls")]
         function_calls: Vec<serde_json::Value>,
     },
 }

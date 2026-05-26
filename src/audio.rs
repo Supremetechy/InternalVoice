@@ -23,7 +23,7 @@ impl AudioEngine {
         let input_config = input_device.default_input_config()
             .map_err(|e| InternalVoiceError::Audio(format!("Failed to get default input config: {}", e)))?;
 
-        tracing::info!(
+        tracing::debug!(
             "Default input config: channels={}, sample_rate={}, format={:?}",
             input_config.channels(),
             input_config.sample_rate().0,
@@ -36,6 +36,14 @@ impl AudioEngine {
             input_config,
             sample_rate: 16000,
         })
+    }
+
+    pub fn input_device_name(&self) -> Option<String> {
+        self.input_device.name().ok()
+    }
+
+    pub fn output_device_name(&self) -> Option<String> {
+        self.output_device.name().ok()
     }
 
     pub fn start_recording(&self, tx: mpsc::Sender<String>) -> Result<cpal::Stream> {

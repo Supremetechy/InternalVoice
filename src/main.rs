@@ -15,7 +15,7 @@ mod tts;
 use std::{fs, sync::Arc};
 use futures_util::{SinkExt, StreamExt};
 use tokio::{signal, time::sleep};
-use tracing::{error, info, warn};
+use tracing::{debug, error, info, warn};
 use tracing_appender::rolling::{RollingFileAppender, Rotation};
 use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt, EnvFilter};
 
@@ -35,8 +35,23 @@ async fn main() -> Result<()> {
     init_tracing(&config)?;
     enforce_least_privilege();
 
+    print_banner();
+
     let context = Arc::new(ServiceContext::initialize(config)?);
     info!("InternalVoice starting");
+
+    {
+        let cfg = context.config.lock().await;
+        if !cfg.alerts.setup_completed {
+            print_first_run_setup(&context.audio_engine);
+        } else {
+            println!("  Microphone : {}", context.audio_engine.input_device_name().unwrap_or_else(|| "default".into()));
+            println!("  Speaker    : {}", context.audio_engine.output_device_name().unwrap_or_else(|| "default".into()));
+            println!();
+        }
+    }
+
+    println!("  Connecting to Gemini Live...");
 
     tokio::select! {
         result = run_service(context.clone()) => {
@@ -50,6 +65,7 @@ async fn main() -> Result<()> {
         }
     }
 
+    println!("\n  InternalVoice stopped.");
     info!("InternalVoice stopped");
     Ok(())
 }
@@ -64,30 +80,36 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
     match context.gemini_live.connect(system_instruction).await {
         Ok(mut ws_stream) => {
             info!("Established Gemini Live duplex transport");
-            
+            println!("  Connected.\n");
+
             let (audio_tx, mut audio_rx) = tokio::sync::mpsc::channel::<String>(100);
             let _recording_stream = context.audio_engine.start_recording(audio_tx)?;
 
-            // Initial setup check
+            // On first run send the setup prompt so Gemini asks about notification frequency.
             {
                 let config = context.config.lock().await;
                 if !config.alerts.setup_completed {
+                    println!("  Speak your notification frequency preference:");
+                    println!("    \"daily\", \"hourly\", or \"every minute\"\n");
                     let setup_prompt = {
                         let policy = context.policy.lock().await;
                         policy.build_setup_prompt(&config)
                     };
                     let setup_msg = serde_json::json!({
-                        "client_content": {
-                            "turns": [{
-                                "role": "user",
-                                "parts": [{"text": setup_prompt.prompt}]
-                            }],
-                            "turn_complete": true
+                        "clientContent": {
+                            "turns": [{"role": "user", "parts": [{"text": setup_prompt.prompt}]}],
+                            "turnComplete": true
                         }
                     });
-                    ws_stream.send(tokio_tungstenite::tungstenite::Message::Text(setup_msg.to_string().into())).await.map_err(|e| {
-                        crate::error::InternalVoiceError::Gemini(format!("Failed to send setup prompt: {}", e))
+                    ws_stream.send(tokio_tungstenite::tungstenite::Message::Text(
+                        setup_msg.to_string().into()
+                    )).await.map_err(|e| {
+                        crate::error::InternalVoiceError::Gemini(
+                            format!("Failed to send setup prompt: {}", e)
+                        )
                     })?;
+                } else {
+                    println!("  Listening for voice input. Press Ctrl+C to stop.\n");
                 }
             }
 
@@ -101,8 +123,71 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                     }
                     msg = ws_stream.next() => {
                         match msg {
-                            Some(Ok(tokio_tungstenite::tungstenite::Message::Text(text))) => {
-                                match serde_json::from_str::<ServerMessage>(&text) {
+                            Some(Ok(m)) if m.is_text() || m.is_binary() => {
+                                // Extract payload from either Text or Binary WebSocket frame.
+                                let raw = match &m {
+                                    tokio_tungstenite::tungstenite::Message::Text(s) => s.to_string(),
+                                    tokio_tungstenite::tungstenite::Message::Binary(b) => {
+                                        String::from_utf8_lossy(b).into_owned()
+                                    }
+                                    _ => continue,
+                                };
+                                let text = raw.trim();
+                                if text.is_empty() || !text.starts_with('{') {
+                                    continue;
+                                }
+
+                                match serde_json::from_str::<ServerMessage>(text) {
+                                    Ok(ServerMessage::SetupComplete {}) => {
+                                        info!("Gemini Live session ready");
+                                        println!("  [InternalVoice] Session ready.");
+                                    }
+                                    Ok(ServerMessage::ServerContent { model_turn, turn_complete, .. }) => {
+                                        if let Some(content) = model_turn {
+                                            for part in content.parts {
+                                                // Audio response from Gemini Live
+                                                if let Some(audio) = part.inline_data {
+                                                    if let Err(e) = context.audio_engine.play_audio(&audio.data) {
+                                                        error!(error = %e, "Failed to play audio response");
+                                                    }
+                                                }
+                                                // Text transcript / text-mode response
+                                                if let Some(response_text) = part.text {
+                                                    if response_text.trim().is_empty() {
+                                                        continue;
+                                                    }
+                                                    if let Ok(decision) = serde_json::from_str::<crate::policy::InterruptionDecision>(&response_text) {
+                                                        if let Some(setup) = decision.setup_info {
+                                                            let mut config = context.config.lock().await;
+                                                            config.alerts.frequency = setup.frequency;
+                                                            config.alerts.setup_completed = setup.completed;
+                                                            config.save()?;
+                                                            println!("  [Setup] Alert frequency set to {:?}.", config.alerts.frequency);
+                                                            info!(frequency = ?config.alerts.frequency, "Alert preferences updated");
+                                                        }
+                                                        if decision.speak {
+                                                            if let Some(utterance) = decision.utterance {
+                                                                println!("  [InternalVoice] {}", utterance);
+                                                                info!(text = %utterance, "InternalVoice said");
+                                                                if context.config.lock().await.narration.voice_enabled {
+                                                                    context.tts.speak(&utterance).await;
+                                                                }
+                                                            }
+                                                        }
+                                                    } else {
+                                                        println!("  [InternalVoice] {}", response_text);
+                                                        info!(text = %response_text, "InternalVoice said");
+                                                        if context.config.lock().await.narration.voice_enabled {
+                                                            context.tts.speak(&response_text).await;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if turn_complete {
+                                            debug!("Turn complete");
+                                        }
+                                    }
                                     Ok(ServerMessage::RealtimeInput { media_chunks }) => {
                                         for chunk in media_chunks {
                                             if let Err(e) = context.audio_engine.play_audio(&chunk.data) {
@@ -110,62 +195,37 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                             }
                                         }
                                     }
-                                    Ok(ServerMessage::ServerContent { model_turn }) => {
-                                        for part in model_turn.parts {
-                                            if let Some(text) = part.text {
-                                                info!(text = %text, "InternalVoice said");
-                                                
-                                                // Check for setup info in JSON if the text contains JSON
-                                                if let Ok(decision) = serde_json::from_str::<crate::policy::InterruptionDecision>(&text) {
-                                                    if let Some(setup) = decision.setup_info {
-                                                        let mut config = context.config.lock().await;
-                                                        config.alerts.frequency = setup.frequency;
-                                                        config.alerts.setup_completed = setup.completed;
-                                                        config.save()?;
-                                                        info!(frequency = ?config.alerts.frequency, "Alert preferences updated");
-                                                    }
-                                                    if decision.speak {
-                                                        if let Some(utterance) = decision.utterance {
-                                                            if context.config.lock().await.narration.voice_enabled {
-                                                                context.tts.speak(&utterance).await;
-                                                            }
-                                                        }
-                                                    }
-                                                } else {
-                                                    // Fallback for regular text
-                                                    if context.config.lock().await.narration.voice_enabled {
-                                                        context.tts.speak(&text).await;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    Ok(msg) => info!("Received server message: {:?}", msg),
-                                    Err(e) => {
-                                        error!(error = %e, text = %text, "Failed to parse server message");
-                                    }
+                                    Ok(_) => debug!("Unhandled server message variant"),
+                                    Err(e) => debug!(error = %e, "Ignoring unparseable server message"),
                                 }
                             }
                             Some(Ok(tokio_tungstenite::tungstenite::Message::Close(frame))) => {
-                                warn!(frame = ?frame, "WebSocket closed by server");
+                                let reason = frame
+                                    .as_ref()
+                                    .map(|f| f.reason.to_string())
+                                    .unwrap_or_else(|| "no reason given".into());
+                                warn!(reason = %reason, "WebSocket closed by server");
+                                eprintln!("\n  [ERROR] Gemini Live disconnected: {}", reason);
+                                if reason.to_lowercase().contains("api key") || reason.to_lowercase().contains("leaked") {
+                                    eprintln!("  [ACTION] Regenerate your API key at https://aistudio.google.com/apikey");
+                                    eprintln!("           Then update GEMINI_API_KEY in your .env file and restart.");
+                                }
                                 break;
                             }
-                            Some(Ok(msg)) => {
-                                info!("Received non-text message: {:?}", msg);
-                            }
+                            Some(Ok(_)) => {} // Ping/Pong — ignore silently
                             Some(Err(e)) => {
                                 error!(error = %e, "WebSocket error");
+                                eprintln!("\n  [ERROR] WebSocket error: {}", e);
                                 break;
                             }
                             None => {
                                 warn!("WebSocket stream ended");
+                                eprintln!("\n  [ERROR] Connection dropped unexpectedly.");
                                 break;
                             }
                         }
                     }
-                    _ = sleep(Duration::from_millis(100)) => {
-                        // Periodic state updates could be sent here as well
-                    }
+                    _ = sleep(Duration::from_millis(100)) => {}
                     _ = shutdown_signal() => {
                         info!("shutdown signal received");
                         break;
@@ -175,11 +235,8 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
         }
         Err(e) => {
             warn!(error = %e, "Failed to connect to Gemini Live API, falling back to polling");
-            
-
             run_polling_service(context).await?;
         }
-
     }
 
     Ok(())
@@ -255,7 +312,16 @@ async fn run_polling_service(context: Arc<ServiceContext>) -> Result<()> {
                         }
 
                     }
-                    Err(err) => warn!(error = %err, "Gemini request failed"),
+                    Err(err) => {
+                        warn!(error = %err, "Gemini request failed");
+                        let msg = err.to_string();
+                        if msg.contains("leaked") || msg.contains("API key") || msg.contains("403") {
+                            eprintln!("\n  [ERROR] Gemini API rejected the request: {}", msg);
+                            eprintln!("  [ACTION] Regenerate your API key at https://aistudio.google.com/apikey");
+                            eprintln!("           Then update GEMINI_API_KEY in your .env file and restart.");
+                            break Ok(());
+                        }
+                    }
                 }
             }
         }
@@ -289,6 +355,43 @@ async fn process_decision(context: Arc<ServiceContext>, decision: crate::policy:
 
 use std::time::Duration;
 
+fn print_banner() {
+    println!();
+    println!("  ┌─────────────────────────────────────────────────┐");
+    println!("  │           I N T E R N A L  V O I C E           │");
+    println!("  │         AI System Monitor & Assistant            │");
+    println!("  └─────────────────────────────────────────────────┘");
+    println!();
+}
+
+fn print_first_run_setup(audio: &crate::audio::AudioEngine) {
+    println!("  ── First-Run Setup ───────────────────────────────");
+    println!();
+    println!("  Speech-to-Text (STT)");
+    println!("    Engine  : Gemini Live (real-time voice recognition)");
+    if let Some(name) = audio.input_device_name() {
+        println!("    Mic     : {}", name);
+    }
+    println!();
+    println!("  Text-to-Speech (TTS)");
+    #[cfg(target_os = "macos")]
+    println!("    Engine  : macOS 'say' command");
+    #[cfg(target_os = "windows")]
+    println!("    Engine  : Windows Speech Synthesis");
+    #[cfg(not(any(target_os = "macos", target_os = "windows")))]
+    println!("    Engine  : espeak / festival");
+    if let Some(name) = audio.output_device_name() {
+        println!("    Speaker : {}", name);
+    }
+    println!();
+    println!("  Notification Frequency");
+    println!("    InternalVoice will ask via voice — listen for the prompt.");
+    println!("    Speak one of: \"daily\"  |  \"hourly\"  |  \"every minute\"");
+    println!();
+    println!("  ──────────────────────────────────────────────────");
+    println!();
+}
+
 async fn shutdown_signal() {
     #[cfg(unix)]
     {
@@ -318,21 +421,20 @@ fn init_tracing(config: &AppConfig) -> Result<()> {
         .max_log_files(config.max_log_files())
         .build(log_dir)?;
 
-    info!(
-        log_dir = %config.log_dir().display(),
-        max_files = config.max_log_files(),
-        max_size_mb = config.max_log_file_size() / 1024 / 1024,
-        "log system initialized"
-    );
-
-    let stdout_layer = fmt::layer().with_target(false);
+    // No stdout tracing layer — user-facing output uses println!.
+    // Tracing goes to the rotating log file only (debug+ from our crate).
     let file_layer = fmt::layer().with_writer(appender).with_ansi(false);
 
     tracing_subscriber::registry()
-        .with(EnvFilter::from_default_env().add_directive("internalvoice=info".parse().unwrap()))
-        .with(stdout_layer)
+        .with(
+            EnvFilter::from_default_env()
+                .add_directive("internalvoice=debug".parse().unwrap())
+                .add_directive("warn".parse().unwrap()),
+        )
         .with(file_layer)
         .init();
+
+    info!(log_dir = %config.log_dir().display(), "log system initialized");
 
     Ok(())
 }

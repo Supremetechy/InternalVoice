@@ -274,6 +274,7 @@ impl AppConfig {
         PathBuf::from(&self.service.log_dir)
     }
 
+    #[allow(dead_code)]
     pub fn max_log_file_size(&self) -> u64 {
         (self.service.max_log_file_size_mb as u64) * 1024 * 1024
     }
