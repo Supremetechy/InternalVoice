@@ -7,29 +7,38 @@ use crate::error::{InternalVoiceError, Result};
 
 pub struct AudioEngine {
     input_device: cpal::Device,
-    output_device: cpal::Device,
     input_config: cpal::SupportedStreamConfig,
-    /// Rate used when encoding microphone audio to send to Gemini (16 kHz PCM).
+    /// Rate at which microphone audio is encoded before sending to Gemini (16 kHz PCM).
     encode_rate: u32,
     /// Native sample rate of the hardware output device.
     output_native_rate: u32,
+    /// Cached name of the output device (device is moved into the playback thread).
+    output_device_name: Option<String>,
+    /// Send resampled i16 chunks to the persistent playback thread.
+    playback_tx: std::sync::mpsc::Sender<Vec<i16>>,
 }
 
 impl AudioEngine {
     pub fn new() -> Result<Self> {
         let host = cpal::default_host();
-        let input_device = host.default_input_device()
+
+        let input_device = host
+            .default_input_device()
             .ok_or_else(|| InternalVoiceError::Audio("No input device found".into()))?;
-        let output_device = host.default_output_device()
+        let output_device = host
+            .default_output_device()
             .ok_or_else(|| InternalVoiceError::Audio("No output device found".into()))?;
 
-        let input_config = input_device.default_input_config()
+        let input_config = input_device
+            .default_input_config()
             .map_err(|e| InternalVoiceError::Audio(format!("Failed to get default input config: {}", e)))?;
 
         let output_native_rate = output_device
             .default_output_config()
             .map(|c| c.sample_rate().0)
             .unwrap_or(44100);
+
+        let output_device_name = output_device.name().ok();
 
         tracing::debug!(
             "Input: channels={}, sample_rate={}, format={:?} | Output native rate: {}",
@@ -39,17 +48,47 @@ impl AudioEngine {
             output_native_rate,
         );
 
+        // Unbounded channel — send never blocks, so play_audio is always non-blocking.
+        let (playback_tx, playback_rx) = std::sync::mpsc::channel::<Vec<i16>>();
+
+        // Spawn a dedicated audio output thread that owns the OutputStream + Sink.
+        // A single Sink queues all chunks and plays them back-to-back with no gaps.
+        let native_rate = output_native_rate;
+        std::thread::spawn(move || {
+            let (_stream, handle) = match OutputStream::try_from_device(&output_device) {
+                Ok(pair) => pair,
+                Err(e) => {
+                    tracing::error!("Failed to open audio output device: {}", e);
+                    return;
+                }
+            };
+            let sink = match Sink::try_new(&handle) {
+                Ok(s) => s,
+                Err(e) => {
+                    tracing::error!("Failed to create audio sink: {}", e);
+                    return;
+                }
+            };
+            // Block on the channel; append each chunk to the shared Sink.
+            // The Sink plays them seamlessly without gaps.
+            while let Ok(samples) = playback_rx.recv() {
+                sink.append(SamplesBuffer::new(1, native_rate, samples));
+            }
+            // Channel closed (program exiting) — drain remaining audio then exit.
+            sink.sleep_until_end();
+        });
+
         Ok(Self {
             input_device,
-            output_device,
             input_config,
             encode_rate: 16000,
             output_native_rate,
+            output_device_name,
+            playback_tx,
         })
     }
 
-    /// The hardware output device's native sample rate. Pass this to Gemini Live
-    /// so it can target the same rate and no resampling is required on playback.
+    /// The hardware output device's native sample rate.
     pub fn output_sample_rate(&self) -> u32 {
         self.output_native_rate
     }
@@ -59,7 +98,7 @@ impl AudioEngine {
     }
 
     pub fn output_device_name(&self) -> Option<String> {
-        self.output_device.name().ok()
+        self.output_device_name.clone()
     }
 
     pub fn start_recording(&self, tx: mpsc::Sender<String>) -> Result<cpal::Stream> {
@@ -77,80 +116,77 @@ impl AudioEngine {
         Ok(stream)
     }
 
-    fn build_input_stream<T>(&self, tx: mpsc::Sender<String>, channels: u16, source_rate: u32, target_rate: u32) -> Result<cpal::Stream>
+    fn build_input_stream<T>(
+        &self,
+        tx: mpsc::Sender<String>,
+        channels: u16,
+        source_rate: u32,
+        target_rate: u32,
+    ) -> Result<cpal::Stream>
     where
         T: cpal::Sample + rodio::Sample + Into<f32> + cpal::SizedSample,
     {
         let tx = tx.clone();
-        self.input_device.build_input_stream(
-            &self.input_config.clone().into(),
-            move |data: &[T], _| {
-                let mut samples: Vec<f32> = data.iter().map(|&s| s.into()).collect();
-                
-                // Convert to mono if multi-channel
-                if channels > 1 {
-                    let mut mono = Vec::with_capacity(samples.len() / channels as usize);
-                    for chunk in samples.chunks_exact(channels as usize) {
-                        let avg = chunk.iter().sum::<f32>() / channels as f32;
-                        mono.push(avg);
+        self.input_device
+            .build_input_stream(
+                &self.input_config.clone().into(),
+                move |data: &[T], _| {
+                    let mut samples: Vec<f32> = data.iter().map(|&s| s.into()).collect();
+
+                    if channels > 1 {
+                        let mut mono = Vec::with_capacity(samples.len() / channels as usize);
+                        for chunk in samples.chunks_exact(channels as usize) {
+                            let avg = chunk.iter().sum::<f32>() / channels as f32;
+                            mono.push(avg);
+                        }
+                        samples = mono;
                     }
-                    samples = mono;
-                }
 
-                // Resample if necessary
-                let final_samples = if source_rate != target_rate {
-                    resample(&samples, source_rate, target_rate)
-                } else {
-                    samples
-                };
+                    let final_samples = if source_rate != target_rate {
+                        resample(&samples, source_rate, target_rate)
+                    } else {
+                        samples
+                    };
 
-                // Convert f32 to i16 PCM
-                let pcm_data: Vec<u8> = final_samples.iter()
-                    .flat_map(|&s| {
-                        let sample = (s.clamp(-1.0, 1.0) * i16::MAX as f32) as i16;
-                        sample.to_le_bytes()
-                    })
-                    .collect();
+                    let pcm_data: Vec<u8> = final_samples
+                        .iter()
+                        .flat_map(|&s| {
+                            let sample = (s.clamp(-1.0, 1.0) * i16::MAX as f32) as i16;
+                            sample.to_le_bytes()
+                        })
+                        .collect();
 
-                let encoded = general_purpose::STANDARD.encode(&pcm_data);
-                let _ = tx.blocking_send(encoded);
-            },
-            |err| tracing::error!("Audio input stream error: {}", err),
-            None
-        ).map_err(|e| InternalVoiceError::Audio(e.to_string()))
+                    let encoded = general_purpose::STANDARD.encode(&pcm_data);
+                    let _ = tx.blocking_send(encoded);
+                },
+                |err| tracing::error!("Audio input stream error: {}", err),
+                None,
+            )
+            .map_err(|e| InternalVoiceError::Audio(e.to_string()))
     }
 
-    /// Play base64-encoded PCM audio that Gemini sent at `source_rate`.
-    /// The samples are resampled to the hardware's native rate so rodio
-    /// receives audio that already matches the device — no implicit resampling.
-    pub fn play_audio(&self, base64_audio: &str, source_rate: u32) -> Result<()> {
-        let decoded = general_purpose::STANDARD.decode(base64_audio)
+    /// Decode base64 PCM audio from Gemini, resample to the device's native rate,
+    /// and enqueue it on the persistent Sink. Returns immediately — no blocking.
+    pub fn play_audio(&self, base64_data: &str, source_rate: u32) -> Result<()> {
+        let decoded = general_purpose::STANDARD
+            .decode(base64_data)
             .map_err(|e| InternalVoiceError::Audio(format!("Base64 decode error: {}", e)))?;
 
-        // Decode i16 LE PCM → f32 for resampling.
         let f32_samples: Vec<f32> = decoded
             .chunks_exact(2)
             .map(|c| i16::from_le_bytes([c[0], c[1]]) as f32 / i16::MAX as f32)
             .collect();
 
-        // Resample from Gemini's rate to the hardware's native rate.
         let resampled = resample(&f32_samples, source_rate, self.output_native_rate);
 
-        // Convert back to i16 for rodio.
         let i16_samples: Vec<i16> = resampled
             .into_iter()
             .map(|s| (s.clamp(-1.0, 1.0) * i16::MAX as f32) as i16)
             .collect();
 
-        let (_stream, handle) = OutputStream::try_from_device(&self.output_device)
-            .map_err(|e| InternalVoiceError::Audio(e.to_string()))?;
-        let sink = Sink::try_new(&handle)
-            .map_err(|e| InternalVoiceError::Audio(e.to_string()))?;
-
-        // Tell rodio the buffer is already at the device's native rate.
-        let buffer = SamplesBuffer::new(1, self.output_native_rate, i16_samples);
-        sink.append(buffer);
-        sink.sleep_until_end();
+        self.playback_tx
+            .send(i16_samples)
+            .map_err(|_| InternalVoiceError::Audio("Playback thread has exited".into()))?;
 
         Ok(())
     }
@@ -171,8 +207,7 @@ fn resample(samples: &[f32], from: u32, to: u32) -> Vec<f32> {
         let frac = pos - idx as f32;
 
         if idx + 1 < samples.len() {
-            let sample = samples[idx] * (1.0 - frac) + samples[idx + 1] * frac;
-            result.push(sample);
+            result.push(samples[idx] * (1.0 - frac) + samples[idx + 1] * frac);
         } else {
             result.push(samples[idx]);
         }

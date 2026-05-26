@@ -1849,3 +1849,110 @@ I'm focusing on the user's perception of "slow" despite balanced resources. Even
   }
 }
 
+2026-05-26T08:17:26.260465Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:19:29.225656Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:21:32.437322Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:23:35.648779Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:25:38.930012Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:27:41.886998Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:29:44.839070Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:31:47.926875Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:33:22.555691Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T08:33:47.104424Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-26T08:33:47.434262Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-26T08:33:47.598574Z  INFO internalvoice: InternalVoice starting
+2026-05-26T08:33:48.243330Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-26T08:33:48.981763Z  INFO internalvoice: Gemini Live session ready
+2026-05-26T08:33:51.152513Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T08:33:53.719797Z  INFO internalvoice: InternalVoice said text=**Monitoring System Status**
+
+My current assessment indicates high memory utilization (90%) and elevated CPU load (75%), which are affecting system performance. I also see disk space is critically low with only 5GB remaining. My suggestion is to close any unnecessary applications and to address the disk space immediately to optimize the system.
+
+
+
+2026-05-26T08:33:54.175559Z  INFO internalvoice: InternalVoice said text=**Assessing System Resources**
+
+I've observed a system struggling under the weight of high resource demands. Memory is maxed out at 90%, the CPU is at 75%, and disk space is critically low at only 5GB remaining. I suggest closing superfluous applications and freeing up disk space urgently to improve performance.
+
+
+
+2026-05-26T08:33:55.401215Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T08:34:01.697719Z  INFO internalvoice: InternalVoice said text=**Analyzing System Load**
+
+I've registered elevated memory consumption. My current assessment is that closing non-essential applications offers the most direct pathway to improvement, mitigating potential performance bottlenecks. I've formulated a simple, direct response based on this actionable system condition, as the primary goal is optimization.
+
+
+
+2026-05-26T08:34:03.163754Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T08:34:09.224569Z  INFO internalvoice: InternalVoice said text=**Acknowledge System Alert**
+
+I've registered the system alert, mirroring the user's brief statement about high memory usage. I confirm that this indicates a genuine condition. My immediate response is to suggest closing any superfluous applications to improve resource availability, following instructions. I am ready to offer further optimization suggestions if needed.
+
+
+
+2026-05-26T08:34:10.477900Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-26T08:34:11.277467Z  INFO internalvoice: shutdown signal received
+2026-05-26T08:34:11.303667Z  INFO internalvoice: InternalVoice stopped
