@@ -216,7 +216,16 @@ async fn run_polling_service(context: Arc<ServiceContext>) -> Result<()> {
                                     output_format: Option<crate::policy::InterruptionDecision>,
                                 }
 
-                                if let Ok(wrapper) = serde_json::from_str::<GeminiWrapper>(&raw_json) {
+                                // Strip common markdown fences like ```json ... ``` that models may return.
+                                let cleaned = raw_json
+                                    .trim()
+                                    .trim_start_matches("```json")
+                                    .trim_start_matches("```")
+                                    .trim_end_matches("```")
+                                    .trim();
+
+                                if let Ok(wrapper) = serde_json::from_str::<GeminiWrapper>(cleaned) {
+
                                     if let Some(decision) = wrapper.output_format {
                                         process_decision(context.clone(), decision).await?;
                                         context.cache.put(&prompt.prompt, &raw_json)?;

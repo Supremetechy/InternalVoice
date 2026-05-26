@@ -26,3 +26,32 @@
 2026-05-25T22:29:32.628756Z  INFO internalvoice: Alert preferences updated frequency=None
 2026-05-25T22:29:32.628992Z  INFO internalvoice: InternalVoice said text=Your system is running smoothly with 83% battery. You might consider closing the 'Code Helper' applications to free up some resources. priority=Some("null")
 2026-05-25T22:30:38.854395Z  WARN internalvoice: Failed to parse interruption decision error=missing field `speak` at line 1 column 219 raw_response={"output_format":{"priority":"low","setup_info":{"completed":false,"frequency":"none"},"speak":true,"utterance":"Your system is running smoothly with 83% battery. You can close some applications to free up resources."}}
+2026-05-25T22:35:07.343282Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:35:07.810167Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed url=wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key=<redacted> error=HTTP error: 404 Not Found
+2026-05-25T22:35:10.729881Z  WARN internalvoice::config: INTERNALVOICE_CONFIG points to /Users/ethertechnology/Desktop/InternalVoice/config/config.toml, but the file does not exist; falling back
+2026-05-25T22:35:10.731717Z  INFO internalvoice: Alert preferences updated frequency=None
+2026-05-25T22:35:10.731813Z  INFO internalvoice: InternalVoice said text=Your system is running smoothly with 71% memory usage and 67% disk usage. You are currently on AC power. priority=Some("null")
+2026-05-25T22:36:32.266026Z  INFO internalvoice: shutdown signal received
+2026-05-25T22:36:32.266205Z  INFO internalvoice: InternalVoice stopped
+2026-05-25T22:41:06.506923Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:41:07.450793Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed url=wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key=<redacted> error=HTTP error: 404 Not Found
+2026-05-25T22:41:08.877615Z  WARN internalvoice: Failed to parse interruption decision error=expected value at line 1 column 1 raw_response=```json
+{
+  "output_format": {
+    "priority": "null",
+    "setup_info": {
+      "completed": false,
+      "frequency": "none"
+    },
+    "speak": true,
+    "utterance": "Your system is running smoothly with 83% battery. No action is needed at this time."
+  }
+}
+```
+2026-05-25T22:41:27.097274Z  INFO internalvoice: shutdown signal received
+2026-05-25T22:41:27.097386Z  INFO internalvoice: InternalVoice stopped
+2026-05-25T22:42:16.689339Z  INFO internalvoice: InternalVoice starting
+2026-05-25T22:42:17.175741Z  WARN internalvoice: Failed to connect to Gemini Live API, falling back to polling error=gemini api error: WebSocket connection failed url=wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key=<redacted> error=HTTP error: 404 Not Found
+2026-05-25T22:42:18.792005Z  WARN internalvoice::config: INTERNALVOICE_CONFIG points to /Users/ethertechnology/Desktop/InternalVoice/config/config.toml, but the file does not exist; falling back
+2026-05-25T22:42:18.793266Z  INFO internalvoice: Alert preferences updated frequency=None
+2026-05-25T22:42:18.793321Z  INFO internalvoice: InternalVoice said text=Your CPU usage is at 26% and memory usage is at 70%. Everything looks good. priority=Some("null")
