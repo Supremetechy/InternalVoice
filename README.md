@@ -1,3 +1,6 @@
+<img width="987" height="985" alt="image" src="https://github.com/user-attachments/assets/ad47e686-f3e3-43a3-aaec-a0f8726040b6" />
+
+
 # InternalVoice
 
 `InternalVoice` is a Rust-based cross-platform systems utility that samples local system health, normalizes it into a structured state model, and generates concise spoken or textual system narratives through Gemini.
