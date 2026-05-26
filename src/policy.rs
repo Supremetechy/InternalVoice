@@ -68,16 +68,33 @@ impl PolicyEngine {
 
     pub fn system_instructions(&self, config: &AppConfig) -> String {
         let style_instruction = format!("Your style is {}.", config.narration.style);
+        
+        let skill_file = std::path::Path::new(".sixth/skills/it_specialist.md");
+        let skill_content = if skill_file.exists() {
+            std::fs::read_to_string(skill_file).unwrap_or_default()
+        } else {
+            String::new()
+        };
+
         let mut instructions = vec![
-            "You are a system monitor narrator.",
+            "You are InternalVoice, an AI System Monitor & Assistant.",
             &style_instruction,
+        ];
+
+        if !skill_content.is_empty() {
+            instructions.push(&skill_content);
+        } else {
+            instructions.push("You are a system monitor narrator.");
+        }
+
+        instructions.extend(vec![
             "Decide if the user needs to be interrupted.",
             "Summarize only actionable system conditions.",
             "Do not suggest shell commands.",
             "Produce a short, spoken-friendly summary (1–2 sentences).",
             "Optionally suggest a single action (e.g., close app X, plug in power, free disk).",
             "Avoid repeating the same warning unless the situation worsens significantly.",
-        ];
+        ]);
 
         if !config.alerts.setup_completed {
             instructions.push("CRITICAL: The user has not set up their alert preferences yet.");
