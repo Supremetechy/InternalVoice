@@ -3,14 +3,14 @@ sample_interval_secs = 5
 gemini_timeout_secs = 12
 gemini_model = "gemini-3.5-flash"
 gemini_live_model = "gemini-3.5-flash-native-audio-latest"
+gemini_api_key = ""
 debounce_millis = 300
 max_prompt_tokens_hint = 2048
 cache_ttl_secs = 900
 max_log_files = 5
 log_dir = "logs"
 max_log_file_size_mb = 10
-gemini_live_ws_url = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService/BiDiGenerateContent?key={key}"
-gemini_live_model_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent"
+gemini_live_ws_url = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key={key}"
 
 [secrets]
 env_var = "GEMINI_API"
@@ -36,13 +36,6 @@ notify_on_battery_below = 20.0
 notify_on_disk_below = 15.0
 notify_on_cpu_above = 85.0
 notify_on_memory_above = 85.0
-
-[alerts]
-frequency = "none"
-setup_completed = false
-
-[policy.system_telemetry]
-# Settings for monitoring and notifications for different system components
 
 [policy.system_telemetry.host_metadata]
 hostname = "string"
@@ -83,8 +76,6 @@ status = "string"
 created = "timestamp"
 ports = ["string"]
 
-[policy.system_telemetry.network]
-
 [[policy.system_telemetry.network.active_connections]]
 protocol = "tcp/udp"
 local_address = "string"
@@ -101,8 +92,6 @@ ip_addresses = ["string"]
 bytes_sent = "integer"
 bytes_received = "integer"
 
-[policy.system_telemetry.peripheral_devices]
-
 [[policy.system_telemetry.peripheral_devices.bluetooth_connected]]
 device_name = "string"
 mac_address = "string"
@@ -113,3 +102,7 @@ connected_at = "timestamp"
 vendor_id = "string"
 product_id = "string"
 serial = "string"
+
+[alerts]
+frequency = "none"
+setup_completed = true

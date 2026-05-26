@@ -99,9 +99,9 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                             break;
                         }
                     }
-                    Some(msg) = ws_stream.next() => {
+                    msg = ws_stream.next() => {
                         match msg {
-                            Ok(tokio_tungstenite::tungstenite::Message::Text(text)) => {
+                            Some(Ok(tokio_tungstenite::tungstenite::Message::Text(text))) => {
                                 match serde_json::from_str::<ServerMessage>(&text) {
                                     Ok(ServerMessage::RealtimeInput { media_chunks }) => {
                                         for chunk in media_chunks {
@@ -141,14 +141,26 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                         }
                                     }
                                     Ok(msg) => info!("Received server message: {:?}", msg),
-                                    Err(e) => error!(error = %e, "Failed to parse server message"),
+                                    Err(e) => {
+                                        error!(error = %e, text = %text, "Failed to parse server message");
+                                    }
                                 }
                             }
-                            Err(e) => {
+                            Some(Ok(tokio_tungstenite::tungstenite::Message::Close(frame))) => {
+                                warn!(frame = ?frame, "WebSocket closed by server");
+                                break;
+                            }
+                            Some(Ok(msg)) => {
+                                info!("Received non-text message: {:?}", msg);
+                            }
+                            Some(Err(e)) => {
                                 error!(error = %e, "WebSocket error");
                                 break;
                             }
-                            _ => {}
+                            None => {
+                                warn!("WebSocket stream ended");
+                                break;
+                            }
                         }
                     }
                     _ = sleep(Duration::from_millis(100)) => {

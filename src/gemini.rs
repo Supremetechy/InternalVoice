@@ -115,16 +115,44 @@ pub struct ResponseBlob {
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
 struct LiveSetup {
-    setup: SetupConfig,
+    setup: SetupConfigLive,
 }
 
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
-struct SetupConfig {
+struct SetupConfigLive {
     model: String,
-    generation_config: Option<GenerationConfig>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    generation_config: Option<GenerationConfigLive>,
     #[serde(skip_serializing_if = "Option::is_none")]
     system_instruction: Option<SystemInstruction>,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct GenerationConfigLive {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    speech_config: Option<SpeechConfig>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    response_modalities: Option<Vec<String>>,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct SpeechConfig {
+    voice_config: VoiceConfig,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct VoiceConfig {
+    prebuilt_voice_config: PrebuiltVoiceConfig,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct PrebuiltVoiceConfig {
+    voice_name: String,
 }
 
 #[derive(Debug, Serialize)]
@@ -215,11 +243,17 @@ impl GeminiLiveClient {
 
         // Send setup message
         let setup = LiveSetup {
-            setup: SetupConfig {
+            setup: SetupConfigLive {
                 model: format!("models/{}", self.model),
-                generation_config: Some(GenerationConfig {
-                    temperature: 0.7,
-                    max_output_tokens: 1024,
+                generation_config: Some(GenerationConfigLive {
+                    speech_config: Some(SpeechConfig {
+                        voice_config: VoiceConfig {
+                            prebuilt_voice_config: PrebuiltVoiceConfig {
+                                voice_name: "Puck".into(),
+                            },
+                        },
+                    }),
+                    response_modalities: Some(vec!["AUDIO".into()]),
                 }),
                 system_instruction: system_instruction.map(|text| SystemInstruction {
                     role: "system".into(),
@@ -328,27 +362,40 @@ impl GeminiClient {
 
         let mut stream = response.bytes_stream();
         let mut buffer = String::new();
+        let mut line_buffer = String::new();
         let started = Instant::now();
 
         while let Some(chunk) = stream.next().await {
             let bytes = chunk?;
             let payload = String::from_utf8_lossy(&bytes);
+            line_buffer.push_str(&payload);
 
-            for line in payload.lines() {
+            while let Some(newline_idx) = line_buffer.find('\n') {
+                let line = line_buffer[..newline_idx].to_string();
+                line_buffer = line_buffer[newline_idx + 1..].to_string();
+
                 if let Some(data) = line.strip_prefix("data: ") {
                     if data.trim() == "[DONE]" {
                         self.record_success();
                         return Ok(buffer.trim().to_string());
                     }
 
-                    let parsed: StreamChunk = serde_json::from_str(data)?;
-                    for candidate in parsed.candidates {
-                        if let Some(content) = candidate.content {
-                            for part in content.parts {
-                                if let Some(text) = part.text {
-                                    buffer.push_str(&text);
+                    match serde_json::from_str::<StreamChunk>(data) {
+                        Ok(parsed) => {
+                            for candidate in parsed.candidates {
+                                if let Some(content) = candidate.content {
+                                    for part in content.parts {
+                                        if let Some(text) = part.text {
+                                            buffer.push_str(&text);
+                                        }
+                                    }
                                 }
                             }
+                        }
+                        Err(e) => {
+                            // If serialization fails, it might be due to a truncated chunk.
+                            // However, with proper line buffering, this should be rare.
+                            tracing::warn!(error = %e, data = %data, "Failed to parse SSE data chunk");
                         }
                     }
                 }
