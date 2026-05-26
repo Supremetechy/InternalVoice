@@ -68,3 +68,67 @@
   }
 }
 
+2026-05-26T00:09:38.119168Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T00:09:39.312927Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 404 Not Found: {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+2026-05-26T00:11:42.394208Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T00:11:43.481522Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 404 Not Found: {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+2026-05-26T00:13:46.626954Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T00:13:47.920208Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 404 Not Found: {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
+2026-05-26T00:15:51.405420Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 403 Forbidden: {
+  "error": {
+    "code": 403,
+    "message": "Your API key was reported as leaked. Please use another API key.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2026-05-26T00:15:52.454025Z  WARN internalvoice: Gemini request failed error=gemini api error: request failed with 404 Not Found: {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-2.0-flash-exp is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+
