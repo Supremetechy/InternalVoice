@@ -10,6 +10,7 @@ mod publisher;
 mod security;
 mod sensors;
 mod state;
+mod setup;
 mod tts;
 
 use std::{fs, sync::Arc};
@@ -30,6 +31,13 @@ use crate::{
 #[tokio::main]
 async fn main() -> Result<()> {
     let _ = dotenvy::dotenv();
+
+    // Check for --setup flag
+    if std::env::args().any(|arg| arg == "--setup") {
+        setup::run_interactive_setup()?;
+        return Ok(());
+    }
+
     let config = AppConfig::load()?;
     validate_config(&config)?;
     init_tracing(&config)?;

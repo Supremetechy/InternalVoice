@@ -246,7 +246,11 @@ impl AppConfig {
             InternalVoiceError::Config(format!("failed reading config {}: {err}", path.display()))
         })?;
 
-        toml::from_str(&content)
+        Self::load_from_str(&content)
+    }
+
+    pub fn load_from_str(content: &str) -> Result<Self> {
+        toml::from_str(content)
             .map_err(|err| InternalVoiceError::Config(format!("invalid config: {err}")))
     }
 

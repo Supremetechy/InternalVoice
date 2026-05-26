@@ -7,5 +7,15 @@ Update `config/InternalVoice.example.toml` to document the new `gemini_live_ws_u
 
 Build/check the project (`cargo check`).
 
+use std::process::Command;
+fn has_cmd(name: &str) -> bool {
+    Command::new("sh")
+        .arg("-c")
+        .arg(format!("command -v {}", name))
+        .status()
+        .map(|s| s.success())
+        .unwrap_or(false)
+}
+
 
 
