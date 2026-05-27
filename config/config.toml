@@ -1,16 +1,16 @@
 [service]
 sample_interval_secs = 5
 gemini_timeout_secs = 12
-gemini_model = "gemini-2.5-flash"
-gemini_live_model = "gemini-2.5-flash-native-audio-latest"
-gemini_api_key = "AIzaSyCFa_OQTbIcBmg7N6tpjygVT5kqN_-ns4U"
+gemini_model = "gemini-3.5-flash"
+gemini_live_model = "gemini-3.5-flash-native-audio-latest"
+gemini_api_key = ""
 debounce_millis = 300
 max_prompt_tokens_hint = 2048
 cache_ttl_secs = 900
 max_log_files = 5
 log_dir = "logs"
 max_log_file_size_mb = 10
-gemini_live_ws_url = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key={key}"
+gemini_live_ws_url = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key={key}"
 
 [secrets]
 env_var = "GEMINI_API"
