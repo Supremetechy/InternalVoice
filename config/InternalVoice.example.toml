@@ -2,7 +2,7 @@
 sample_interval_secs = 5
 gemini_timeout_secs = 12
 gemini_model = "gemini-3.5-flash"
-gemini_api_key = "AIzaSyDVU9jra3ATfU8Q00IhenU5X1w5f1Hvu5I"
+gemini_api_key = ""
 debounce_millis = 300
 max_prompt_tokens_hint = 2048
 cache_ttl_secs = 900
