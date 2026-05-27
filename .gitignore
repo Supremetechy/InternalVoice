@@ -4,5 +4,5 @@
 *.db
 *.db-*
 internalvoice.log*
-.env
+*.env
 
