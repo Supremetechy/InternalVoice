@@ -1,0 +1,111 @@
+2026-05-27T05:05:03.117269Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-27T05:05:03.503195Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-27T05:05:03.671908Z  INFO internalvoice: InternalVoice starting
+2026-05-27T05:05:04.537458Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-27T05:05:05.284051Z  INFO internalvoice: Gemini Live session ready
+2026-05-27T05:05:11.133628Z  INFO internalvoice: InternalVoice said text=**Listing Running Processes**
+
+I've decided to use the `list_top_processes` tool. Since the user didn't specify a limit, I'm sticking with the default value of 5, as it aligns with my guidelines. Next, I'll process the output from the tool to pinpoint the resource-intensive processes. Finally, I'll craft a concise summary and suggest a possible optimization action, if it seems warranted by the context.
+
+
+
+2026-05-27T05:05:11.133845Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-27T05:05:14.112088Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "response" at 'tool_response.function_responses[0]': Proto field is not repeati
+2026-05-27T05:05:14.138203Z  INFO internalvoice: InternalVoice stopped
+2026-05-27T05:09:27.152989Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-27T05:09:27.612079Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-27T05:09:28.099324Z  INFO internalvoice: InternalVoice starting
+2026-05-27T05:09:29.572768Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-27T05:09:30.326763Z  INFO internalvoice: Gemini Live session ready
+2026-05-27T05:12:23.538835Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-27T05:12:23.853689Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-27T05:12:24.009777Z  INFO internalvoice: InternalVoice starting
+2026-05-27T05:12:24.680729Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-27T05:12:24.895822Z  INFO internalvoice: Gemini Live session ready
+2026-05-27T05:12:31.366430Z  INFO internalvoice: InternalVoice said text=**Gathering System Information**
+
+I'm now implementing the plan for a "system status" request. I'm leveraging the available tools to acquire necessary data as a system analyst. I will be calling `get_system_diagnostics`, `list_top_processes`, and `check_network_status` to gain a broad view. Subsequently, I'll synthesize the information into a brief, actionable summary with possible optimization suggestions.
+
+
+
+2026-05-27T05:12:31.366738Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-27T05:12:31.509237Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","response":{"cpu":{"cores":8,"load_percent":"7.4"},"disks":[{"available_gb":74,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":74,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"70.9","total_mb":16384,"used_mb":11617},"uptime_seconds":549817}}]}}
+2026-05-27T05:12:32.852458Z  INFO internalvoice: InternalVoice said text=**Gathering System Data**
+
+I'm now pulling system diagnostics. I've initiated calls to `get_system_diagnostics`, `list_top_processes`, and `check_network_status`. My focus is to analyze outputs to identify resource bottlenecks and generate a succinct summary for you. The goal is a quick overview with actionable insights.
+
+
+
+2026-05-27T05:12:32.853184Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-27T05:12:32.986450Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","response":{"cpu":{"cores":8,"load_percent":"7.4"},"disks":[{"available_gb":74,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":74,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"70.9","total_mb":16384,"used_mb":11620},"uptime_seconds":549818}}]}}
+2026-05-27T05:13:47.162528Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `toolCallCancellation`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 24
+2026-05-27T05:13:47.167525Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-27T05:13:48.853623Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `toolCallCancellation`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 24
+2026-05-27T05:13:48.854173Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-27T05:13:50.309174Z  INFO internalvoice: InternalVoice said text=**Gathering System Diagnostics**
+
+I'm now focused on obtaining a holistic system overview. I've decided to employ a three-pronged approach: `get_system_diagnostics` to grasp the fundamental health metrics of CPU, Memory, and Disk, `list_top_processes` to uncover resource bottlenecks, and `check_network_status` to ensure connectivity and pinpoint network interface issues. This should enable me to fulfill my role and provide an expert overview.
+
+
+
+2026-05-27T05:13:50.399393Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-27T05:13:50.532383Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","response":{"cpu":{"cores":8,"load_percent":"7.4"},"disks":[{"available_gb":74,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":74,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"70.9","total_mb":16384,"used_mb":11614},"uptime_seconds":549896}}]}}
+2026-05-27T05:13:51.724195Z  INFO internalvoice: InternalVoice said text=**Gathering System Metrics**
+
+I'm now integrating system diagnostics and top process listings. The goal is a quick, complete overview, combining CPU, memory, and disk health with performance bottleneck identification. This should provide the expert with a comprehensive and rapid assessment. I've initiated calls to both diagnostic and process-listing functions.
+
+
+
+2026-05-27T05:13:51.724417Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-27T05:13:51.856254Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","response":{"cpu":{"cores":8,"load_percent":"7.4"},"disks":[{"available_gb":74,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":74,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"70.9","total_mb":16384,"used_mb":11618},"uptime_seconds":549897}}]}}
+2026-05-27T05:13:57.477939Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `toolCallCancellation`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 24
+2026-05-27T05:13:57.592756Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-27T05:14:28.269271Z  INFO internalvoice: shutdown signal received
+2026-05-27T05:14:28.269373Z  INFO internalvoice: InternalVoice stopped
+2026-05-27T05:14:39.020675Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-27T05:14:39.328657Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-27T05:14:39.482647Z  INFO internalvoice: InternalVoice starting
+2026-05-27T05:14:40.024747Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-27T05:14:40.761462Z  INFO internalvoice: Gemini Live session ready
+2026-05-27T05:14:46.211598Z  INFO internalvoice: InternalVoice said text=**Generating System Brief**
+
+I'm focusing on crafting a succinct "system brief." I've called `get_system_diagnostics()` to grab key health metrics and am now ready to call `list_top_processes()` to identify those resource hogs. The goal is a concise summary I can use right away, staying true to my core brevity directives.
+
+
+
+2026-05-27T05:14:46.216369Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-27T05:14:46.350600Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","response":{"cpu":{"cores":8,"load_percent":"7.4"},"disks":[{"available_gb":74,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":74,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"70.9","total_mb":16384,"used_mb":11619},"uptime_seconds":549952}}]}}
+2026-05-27T05:16:01.176527Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `toolCallCancellation`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 24
+2026-05-27T05:16:01.176699Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-27T05:16:06.944383Z  INFO internalvoice: InternalVoice said text=**Initiating System Briefing**
+
+I'm now focused on generating a system briefing. My plan involves gathering key system metrics to address the user's concerns about communication and providing a clear explanation. I've decided on gathering comprehensive data using `get_system_diagnostics`, `list_top_processes`, and `check_network_status`. I'll run each of those tools to give the most complete overview possible.
+
+
+
+2026-05-27T05:16:07.665376Z  INFO internalvoice: InternalVoice said text=**Analyzing System Performance**
+
+I am now analyzing system performance, driven by the user's communication concerns. To this end, I have executed `get_system_diagnostics`, `list_top_processes`, and `check_network_status`. I'll focus the analysis on identifying any bottlenecks or network-related issues to concisely translate the diagnostic data into actionable insights for the user. I'll summarize it as directed.
+
+
+
+2026-05-27T05:16:07.674157Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-27T05:16:07.804420Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","response":{"cpu":{"cores":8,"load_percent":"7.4"},"disks":[{"available_gb":74,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":74,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"70.8","total_mb":16384,"used_mb":11599},"uptime_seconds":550033}}]}}
+2026-05-27T05:18:21.552598Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `toolCallCancellation`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 24
+2026-05-27T05:18:21.552750Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-27T05:18:32.404363Z  INFO internalvoice: InternalVoice said text=**Initiating System Briefing**
+
+I'm starting by assembling system diagnostics to assess overall health, focusing on CPU, memory, and disk. Next, I'll list top processes to identify any bottlenecks. Finally, a check of network status is scheduled to complete the initial assessment, as it can sometimes play a role in performance or indirectly cause communication problems. The plan is to synthesize this data into a focused system briefing, with specific attention to any factors that may be tied to the suspected audio output issue.
+
+
+
+2026-05-27T05:18:32.969276Z  INFO internalvoice: InternalVoice said text=**Analyzing System State**
+
+I've begun analyzing system state by gathering diagnostics on CPU, memory, and disk health, hoping to establish a baseline. I'm moving on to list top processes to spot resource bottlenecks that might relate to audio output issues. Finally, I'll check network status as it could introduce latency. After all this, I'll provide a system briefing, with special focus on issues affecting audio. I'll call `get_system_diagnostics`, `list_top_processes`, and `check_network_status` to gather the system's relevant information.
+
+
+
+2026-05-27T05:18:33.835321Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-27T05:18:33.958024Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","response":{"cpu":{"cores":8,"load_percent":"7.4"},"disks":[{"available_gb":74,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":74,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"70.7","total_mb":16384,"used_mb":11579},"uptime_seconds":550179}}]}}
+2026-05-27T05:23:24.637191Z  INFO internalvoice: shutdown signal received
+2026-05-27T05:23:24.637287Z  INFO internalvoice: InternalVoice stopped

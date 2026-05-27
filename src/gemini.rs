@@ -129,7 +129,43 @@ struct SetupConfigLive {
     generation_config: Option<GenerationConfigLive>,
     #[serde(skip_serializing_if = "Option::is_none")]
     system_instruction: Option<SystemInstruction>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    tools: Option<Vec<ToolDeclaration>>,
 }
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct ToolDeclaration {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    google_search_retrieval: Option<serde_json::Value>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    function_declarations: Option<serde_json::Value>,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ToolResponseMessage {
+    pub tool_response: ToolResponseContent,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ToolResponseContent {
+    pub function_responses: Vec<FunctionResponse>,
+}
+
+// Gemini Live tool response payload.
+// If the server rejects unknown fields (e.g. "response"), update this struct
+// field names to match the API schema.
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FunctionResponse {
+    pub name: String,
+    pub response: serde_json::Value,
+}
+
+
+
 
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -218,8 +254,16 @@ pub enum ServerMessage {
     #[allow(dead_code)]
     ToolCall {
         #[serde(rename = "functionCalls")]
-        function_calls: Vec<serde_json::Value>,
+        function_calls: Vec<FunctionCall>,
     },
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FunctionCall {
+    pub name: String,
+    pub args: serde_json::Value,
+    pub id: String,
 }
 
 pub struct GeminiLiveClient {
@@ -263,12 +307,16 @@ impl GeminiLiveClient {
                             },
                         },
                     }),
-                    response_modalities: Some(vec!["AUDIO".into()]),
+                    response_modalities: Some(vec!["TEXT".into(), "AUDIO".into()]),
                 }),
                 system_instruction: system_instruction.map(|text| SystemInstruction {
                     role: "system".into(),
                     parts: vec![PartStatic { text }],
                 }),
+                tools: Some(vec![ToolDeclaration {
+                    google_search_retrieval: None,
+                    function_declarations: Some(crate::tools::get_tool_declarations()),
+                }]),
             },
         };
 
@@ -418,7 +466,7 @@ impl GeminiClient {
         }
 
         self.record_success();
-        Ok(buffer.trim().to_string())
+        return Ok(buffer.trim().to_string());
     }
 
     async fn await_turn(&self) -> Result<()> {

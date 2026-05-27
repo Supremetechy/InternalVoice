@@ -27,7 +27,7 @@ system_telemetry_interval_secs = 60
 
 [narration]
 min_announcement_interval_secs = 120
-voice_enabled = false
+voice_enabled = true
 max_processes = 5
 style = "brief"
 

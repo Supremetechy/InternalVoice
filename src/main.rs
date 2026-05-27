@@ -11,6 +11,7 @@ mod security;
 mod sensors;
 mod state;
 mod setup;
+mod tools;
 mod tts;
 
 use std::{fs, sync::Arc};
@@ -157,6 +158,7 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                                 // Gemini Live is the voice — play its audio directly.
                                                 // TTS is never used while the WebSocket is alive.
                                                 if let Some(audio) = part.inline_data {
+                                                    debug!("Received audio response from Gemini ({} bytes)", audio.data.len());
                                                     let rate = parse_audio_rate(&audio.mime_type);
                                                     if let Err(e) = context.audio_engine.play_audio(&audio.data, rate) {
                                                         error!(error = %e, "Failed to play audio response");
@@ -199,7 +201,46 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                             }
                                         }
                                     }
-                                    Ok(_) => debug!("Unhandled server message variant"),
+                                    Ok(ServerMessage::ToolCall { function_calls }) => {
+                                        info!(count = function_calls.len(), "Received tool calls from Gemini");
+                                        let mut responses = Vec::new();
+                                        for call in function_calls {
+                                            match crate::tools::call_tool(&call.name, call.args) {
+                                                Ok(response) => {
+                                                    responses.push(crate::gemini::FunctionResponse {
+                                                        name: call.name,
+                                                        response,
+                                                    });
+                                                }
+                                                Err(e) => {
+                                                    error!(error = %e, tool = %call.name, "Tool execution failed");
+                                                    responses.push(crate::gemini::FunctionResponse {
+                                                        name: call.name,
+                                                        response: serde_json::json!({ "error": e.to_string() }),
+                                                    });
+                                                }
+                                            }
+                                        }
+
+let response_msg = crate::gemini::ToolResponseMessage {
+                                            tool_response: crate::gemini::ToolResponseContent {
+                                                function_responses: responses,
+                                            },
+                                        };
+
+
+                                        if let Ok(msg_text) = serde_json::to_string(&response_msg) {
+                                            debug!(payload = %msg_text, "Sending Gemini Live tool response payload");
+                                            if let Err(e) = ws_stream
+                                                .send(tokio_tungstenite::tungstenite::Message::Text(msg_text.into()))
+                                                .await
+
+                                            {
+                                                error!(error = %e, "Failed to send tool response to Gemini");
+                                            }
+                                        }
+
+                                    }
                                     Err(e) => debug!(error = %e, "Ignoring unparseable server message"),
                                 }
                             }

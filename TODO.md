@@ -1,21 +1,9 @@
-# TODO - InternalVoice (Gemini Live fix)
+# InternalVoice - TODO
 
-Inspect Gemini Live connect path and identify hard-coded WSS endpoint causing 404.
-Add config override `service.gemini_live_ws_url` to allow changing the Live WebSocket endpoint.
-Update Gemini Live client to use `gemini_live_ws_url` template with `{key}`.
-Update `config/InternalVoice.example.toml` to document the new `gemini_live_ws_url` option.
-
-Build/check the project (`cargo check`).
-
-use std::process::Command;
-fn has_cmd(name: &str) -> bool {
-    Command::new("sh")
-        .arg("-c")
-        .arg(format!("command -v {}", name))
-        .status()
-        .map(|s| s.success())
-        .unwrap_or(false)
-}
-
-
+## Phase 1: Gemini Live tool-response schema fix
+- [ ] Inspect current Gemini Live tool-response structs and message composition.
+- [ ] Update `src/gemini.rs` tool-response JSON schema to match Gemini Live expectations (fix unknown `response`).
+- [ ] Add debug logging for the outgoing tool response payload.
+- [ ] Run `cargo check` to ensure compilation.
+- [ ] (Optional) Run the service to reproduce the prior disconnect and confirm the fix.
 
