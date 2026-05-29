@@ -191,6 +191,7 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                         }
                                         if turn_complete {
                                             debug!("Turn complete");
+                                            context.audio_engine.notify_turn_complete();
                                         }
                                     }
                                     Ok(ServerMessage::RealtimeInput { audio }) => {

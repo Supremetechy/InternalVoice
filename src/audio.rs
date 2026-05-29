@@ -1,9 +1,22 @@
+use std::{
+    sync::{
+        Arc,
+        atomic::{AtomicBool, Ordering},
+    },
+    time::Duration,
+};
+
 use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 use rodio::{OutputStream, Sink, buffer::SamplesBuffer};
 use base64::{Engine as _, engine::general_purpose};
 use tokio::sync::mpsc;
 
 use crate::error::{InternalVoiceError, Result};
+
+enum PlaybackMsg {
+    Samples(Vec<i16>),
+    Clear,
+}
 
 pub struct AudioEngine {
     input_device: cpal::Device,
@@ -14,8 +27,12 @@ pub struct AudioEngine {
     output_native_rate: u32,
     /// Cached name of the output device (device is moved into the playback thread).
     output_device_name: Option<String>,
-    /// Send resampled i16 chunks to the persistent playback thread.
-    playback_tx: std::sync::mpsc::Sender<Vec<i16>>,
+    /// Send audio commands to the persistent playback thread.
+    playback_tx: std::sync::mpsc::Sender<PlaybackMsg>,
+    /// True while the Sink has audio queued or playing; mic is muted during this time.
+    is_playing: Arc<AtomicBool>,
+    /// Set on turn_complete; causes the next play_audio call to flush stale audio first.
+    pending_clear: Arc<AtomicBool>,
 }
 
 impl AudioEngine {
@@ -48,12 +65,12 @@ impl AudioEngine {
             output_native_rate,
         );
 
-        // Unbounded channel — send never blocks, so play_audio is always non-blocking.
-        let (playback_tx, playback_rx) = std::sync::mpsc::channel::<Vec<i16>>();
+        let is_playing = Arc::new(AtomicBool::new(false));
+        let pending_clear = Arc::new(AtomicBool::new(false));
+        let (playback_tx, playback_rx) = std::sync::mpsc::channel::<PlaybackMsg>();
 
-        // Spawn a dedicated audio output thread that owns the OutputStream + Sink.
-        // A single Sink queues all chunks and plays them back-to-back with no gaps.
         let native_rate = output_native_rate;
+        let is_playing_thread = Arc::clone(&is_playing);
         std::thread::spawn(move || {
             let (_stream, handle) = match OutputStream::try_from_device(&output_device) {
                 Ok(pair) => pair,
@@ -69,12 +86,59 @@ impl AudioEngine {
                     return;
                 }
             };
-            // Block on the channel; append each chunk to the shared Sink.
-            // The Sink plays them seamlessly without gaps.
-            while let Ok(samples) = playback_rx.recv() {
-                sink.append(SamplesBuffer::new(1, native_rate, samples));
+
+            while let Ok(msg) = playback_rx.recv() {
+                match msg {
+                    PlaybackMsg::Samples(samples) => {
+                        is_playing_thread.store(true, Ordering::Release);
+                        sink.append(SamplesBuffer::new(1, native_rate, samples));
+
+                        // Eagerly drain any additional samples that are already queued.
+                        let mut cleared = false;
+                        loop {
+                            match playback_rx.try_recv() {
+                                Ok(PlaybackMsg::Samples(s)) => {
+                                    sink.append(SamplesBuffer::new(1, native_rate, s));
+                                }
+                                Ok(PlaybackMsg::Clear) => {
+                                    sink.clear();
+                                    is_playing_thread.store(false, Ordering::Release);
+                                    cleared = true;
+                                    break;
+                                }
+                                Err(_) => break,
+                            }
+                        }
+                        if cleared {
+                            continue;
+                        }
+
+                        // Poll until the Sink fully drains, accepting new messages along the way.
+                        loop {
+                            if sink.empty() {
+                                is_playing_thread.store(false, Ordering::Release);
+                                break;
+                            }
+                            match playback_rx.try_recv() {
+                                Ok(PlaybackMsg::Samples(s)) => {
+                                    sink.append(SamplesBuffer::new(1, native_rate, s));
+                                }
+                                Ok(PlaybackMsg::Clear) => {
+                                    sink.clear();
+                                    is_playing_thread.store(false, Ordering::Release);
+                                    break;
+                                }
+                                Err(_) => {}
+                            }
+                            std::thread::sleep(Duration::from_millis(10));
+                        }
+                    }
+                    PlaybackMsg::Clear => {
+                        sink.clear();
+                        is_playing_thread.store(false, Ordering::Release);
+                    }
+                }
             }
-            // Channel closed (program exiting) — drain remaining audio then exit.
             sink.sleep_until_end();
         });
 
@@ -85,10 +149,11 @@ impl AudioEngine {
             output_native_rate,
             output_device_name,
             playback_tx,
+            is_playing,
+            pending_clear,
         })
     }
 
-    /// The hardware output device's native sample rate.
     pub fn output_sample_rate(&self) -> u32 {
         self.output_native_rate
     }
@@ -101,18 +166,36 @@ impl AudioEngine {
         self.output_device_name.clone()
     }
 
+    /// Called when Gemini signals turn_complete. The next audio chunk will flush any
+    /// leftover samples from the previous turn before enqueuing new ones.
+    pub fn notify_turn_complete(&self) {
+        self.pending_clear.store(true, Ordering::Release);
+    }
+
     pub fn start_recording(&self, tx: mpsc::Sender<String>) -> Result<cpal::Stream> {
         let sample_rate = self.input_config.sample_rate().0;
         let channels = self.input_config.channels();
         let target_sample_rate = self.encode_rate;
+        let is_playing = Arc::clone(&self.is_playing);
 
         let stream = match self.input_config.sample_format() {
-            cpal::SampleFormat::I16 => self.build_input_stream::<i16>(tx, channels, sample_rate, target_sample_rate)?,
-            cpal::SampleFormat::F32 => self.build_input_stream::<f32>(tx, channels, sample_rate, target_sample_rate)?,
-            format => return Err(InternalVoiceError::Audio(format!("Unsupported sample format: {:?}", format))),
+            cpal::SampleFormat::I16 => self.build_input_stream::<i16>(
+                tx, channels, sample_rate, target_sample_rate, is_playing,
+            )?,
+            cpal::SampleFormat::F32 => self.build_input_stream::<f32>(
+                tx, channels, sample_rate, target_sample_rate, is_playing,
+            )?,
+            format => {
+                return Err(InternalVoiceError::Audio(format!(
+                    "Unsupported sample format: {:?}",
+                    format
+                )))
+            }
         };
 
-        stream.play().map_err(|e: cpal::PlayStreamError| InternalVoiceError::Audio(e.to_string()))?;
+        stream
+            .play()
+            .map_err(|e: cpal::PlayStreamError| InternalVoiceError::Audio(e.to_string()))?;
         Ok(stream)
     }
 
@@ -122,6 +205,7 @@ impl AudioEngine {
         channels: u16,
         source_rate: u32,
         target_rate: u32,
+        is_playing: Arc<AtomicBool>,
     ) -> Result<cpal::Stream>
     where
         T: cpal::Sample + rodio::Sample + Into<f32> + cpal::SizedSample,
@@ -131,6 +215,11 @@ impl AudioEngine {
             .build_input_stream(
                 &self.input_config.clone().into(),
                 move |data: &[T], _| {
+                    // Mute mic while Gemini is speaking to prevent acoustic echo feedback.
+                    if is_playing.load(Ordering::Acquire) {
+                        return;
+                    }
+
                     let mut samples: Vec<f32> = data.iter().map(|&s| s.into()).collect();
 
                     if channels > 1 {
@@ -172,6 +261,16 @@ impl AudioEngine {
             .decode(base64_data)
             .map_err(|e| InternalVoiceError::Audio(format!("Base64 decode error: {}", e)))?;
 
+        // Ignore sub-64-byte packets — these are marker/padding frames, not real audio.
+        if decoded.len() < 64 {
+            return Ok(());
+        }
+
+        // If a new turn just started, flush any stale audio from the previous turn.
+        if self.pending_clear.swap(false, Ordering::AcqRel) {
+            let _ = self.playback_tx.send(PlaybackMsg::Clear);
+        }
+
         let f32_samples: Vec<f32> = decoded
             .chunks_exact(2)
             .map(|c| i16::from_le_bytes([c[0], c[1]]) as f32 / i16::MAX as f32)
@@ -184,10 +283,15 @@ impl AudioEngine {
             .map(|&s| (s.clamp(-1.0, 1.0) * i16::MAX as f32) as i16)
             .collect();
 
-        tracing::debug!("Enqueuing {} mono samples ({}Hz → {}Hz)", samples.len(), source_rate, self.output_native_rate);
+        tracing::debug!(
+            "Enqueuing {} mono samples ({}Hz → {}Hz)",
+            samples.len(),
+            source_rate,
+            self.output_native_rate
+        );
 
         self.playback_tx
-            .send(samples)
+            .send(PlaybackMsg::Samples(samples))
             .map_err(|_| InternalVoiceError::Audio("Playback thread has exited".into()))?;
 
         Ok(())
