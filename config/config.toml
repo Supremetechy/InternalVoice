@@ -2,7 +2,7 @@
 sample_interval_secs = 5
 gemini_timeout_secs = 12
 gemini_model = "gemini-3.5-flash"
-gemini_live_model = "gemini-3.5-flash-native-audio-latest"
+gemini_live_model = "gemini-3.1-flash-live-preview"
 gemini_api_key = ""
 debounce_millis = 300
 max_prompt_tokens_hint = 2048

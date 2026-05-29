@@ -1,0 +1,730 @@
+2026-05-29T01:43:16.209599Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T01:43:16.522627Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T01:43:16.647094Z  INFO internalvoice: InternalVoice starting
+2026-05-29T01:43:17.271744Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T01:43:18.013493Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T01:43:19.402784Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T01:43:19.710173Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T01:43:20.417916Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T01:43:21.014549Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T01:43:21.556286Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T01:43:22.162939Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T01:43:23.595581Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T01:43:23.632688Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"list_top_processes","id":"fc_5296361450380827304","response":[{"cpu_usage":"10.5%","memory_mb":19,"name":"internalvoice","pid":"67838"},{"cpu_usage":"0.1%","memory_mb":110,"name":"Code Helper (GPU)","pid":"3651"},{"cpu_usage":"0.1%","memory_mb":484,"name":"Code Helper (Renderer)","pid":"3654"},{"cpu_usage":"0.0%","memory_mb":0,"name":"AirPlayXPCHelper","pid":"167"},{"cpu_usage":"0.0%","memory_mb":11,"name":"NotificationAgent","pid":"550"}]}]}}
+2026-05-29T01:43:23.633025Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T01:43:23.728917Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"get_system_diagnostics","id":"fc_5296361450380828405","response":{"cpu":{"cores":8,"load_percent":"5.1"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"54.8","total_mb":16384,"used_mb":8971},"uptime_seconds":121295}}]}}
+2026-05-29T01:43:23.729375Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T01:43:23.731617Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"check_network_status","id":"fc_5296361450380825410","response":{"hostname":"Supremes-MacBook-Pro.local","interfaces":[{"interface":"utun1","received_kb":0,"transmitted_kb":0},{"interface":"utun3","received_kb":0,"transmitted_kb":195},{"interface":"utun9","received_kb":4796,"transmitted_kb":1043},{"interface":"en3","received_kb":0,"transmitted_kb":0},{"interface":"en1","received_kb":0,"transmitted_kb":0},{"interface":"utun6","received_kb":0,"transmitted_kb":0},{"interface":"lo0","received_kb":12007,"transmitted_kb":12007},{"interface":"en5","received_kb":7,"transmitted_kb":7},{"interface":"en0","received_kb":102306,"transmitted_kb":55138},{"interface":"llw0","received_kb":0,"transmitted_kb":0},{"interface":"gif0","received_kb":0,"transmitted_kb":0},{"interface":"en4","received_kb":0,"transmitted_kb":0},{"interface":"en2","received_kb":0,"transmitted_kb":0},{"interface":"awdl0","received_kb":4539,"transmitted_kb":1722},{"interface":"utun0","received_kb":0,"transmitted_kb":0},{"interface":"bridge0","received_kb":0,"transmitted_kb":0},{"interface":"utun5","received_kb":10,"transmitted_kb":9},{"interface":"utun7","received_kb":0,"transmitted_kb":0},{"interface":"utun8","received_kb":0,"transmitted_kb":0},{"interface":"stf0","received_kb":0,"transmitted_kb":0},{"interface":"utun2","received_kb":0,"transmitted_kb":0},{"interface":"utun4","received_kb":10,"transmitted_kb":9}]}}]}}
+2026-05-29T01:43:23.765910Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "response" at 'tool_response.function_responses[0]': Proto field is not repeati
+2026-05-29T01:43:23.797337Z  INFO internalvoice: InternalVoice stopped
+2026-05-29T16:40:37.966358Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T16:40:38.312615Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T16:40:38.445066Z  INFO internalvoice: InternalVoice starting
+2026-05-29T16:40:40.360600Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T16:40:41.100014Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T16:40:42.205227Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:42.701560Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:43.237173Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:43.889780Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:44.338315Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:45.210879Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:45.418502Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:45.969061Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:46.328579Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:46.988890Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:48.553189Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:40:48.650807Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"get_system_diagnostics","id":"fc_3479707317488129426","response":{"cpu":{"cores":8,"load_percent":"4.8"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"55.8","total_mb":16384,"used_mb":9135},"uptime_seconds":175141}}]}}
+2026-05-29T16:40:48.651049Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:40:48.689620Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"list_top_processes","id":"fc_3479707317488128879","response":[{"cpu_usage":"11.0%","memory_mb":21,"name":"internalvoice","pid":"90653"},{"cpu_usage":"0.1%","memory_mb":123,"name":"snyk-macos","pid":"89825"},{"cpu_usage":"0.0%","memory_mb":86,"name":"Code Helper (GPU)","pid":"86622"},{"cpu_usage":"0.0%","memory_mb":0,"name":"osanalyticshelper","pid":"670"},{"cpu_usage":"0.0%","memory_mb":20,"name":"intelligenceplatformd","pid":"1746"}]}]}}
+2026-05-29T16:40:48.689837Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:40:48.692094Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"check_network_status","id":"fc_3479707317488128332","response":{"hostname":"Supremes-MacBook-Pro.local","interfaces":[{"interface":"utun5","received_kb":10,"transmitted_kb":9},{"interface":"gif0","received_kb":0,"transmitted_kb":0},{"interface":"utun6","received_kb":0,"transmitted_kb":0},{"interface":"utun8","received_kb":0,"transmitted_kb":0},{"interface":"en5","received_kb":219,"transmitted_kb":216},{"interface":"utun9","received_kb":1260016,"transmitted_kb":28727},{"interface":"utun7","received_kb":0,"transmitted_kb":0},{"interface":"bridge0","received_kb":0,"transmitted_kb":0},{"interface":"utun2","received_kb":0,"transmitted_kb":0},{"interface":"en3","received_kb":0,"transmitted_kb":0},{"interface":"awdl0","received_kb":8045,"transmitted_kb":6984},{"interface":"en4","received_kb":0,"transmitted_kb":0},{"interface":"en2","received_kb":0,"transmitted_kb":0},{"interface":"stf0","received_kb":0,"transmitted_kb":0},{"interface":"utun3","received_kb":0,"transmitted_kb":863},{"interface":"utun1","received_kb":0,"transmitted_kb":0},{"interface":"utun0","received_kb":0,"transmitted_kb":0},{"interface":"en1","received_kb":0,"transmitted_kb":0},{"interface":"en0","received_kb":860774,"transmitted_kb":106934},{"interface":"llw0","received_kb":0,"transmitted_kb":0},{"interface":"utun4","received_kb":10,"transmitted_kb":9},{"interface":"lo0","received_kb":46545,"transmitted_kb":46545}]}}]}}
+2026-05-29T16:40:48.692419Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:40:49.403350Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "response" at 'tool_response.function_responses[0]': Proto field is not repeati
+2026-05-29T16:40:49.433833Z  INFO internalvoice: InternalVoice stopped
+2026-05-29T16:45:31.263898Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T16:45:31.573597Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T16:45:31.691139Z  INFO internalvoice: InternalVoice starting
+2026-05-29T16:45:32.241383Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T16:45:32.982745Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T16:45:34.166502Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:45:34.661222Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:45:35.193918Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:45:38.167392Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:45:38.267090Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"get_system_diagnostics","id":"fc_12868538604855493781","result":{"cpu":{"cores":8,"load_percent":"4.8"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"55.9","total_mb":16384,"used_mb":9151},"uptime_seconds":175431}}]}}
+2026-05-29T16:45:38.267581Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:45:38.269847Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"check_network_status","id":"fc_12868538604855495154","result":{"hostname":"Supremes-MacBook-Pro.local","interfaces":[{"interface":"utun3","received_kb":0,"transmitted_kb":866},{"interface":"utun7","received_kb":0,"transmitted_kb":0},{"interface":"en0","received_kb":862090,"transmitted_kb":108986},{"interface":"stf0","received_kb":0,"transmitted_kb":0},{"interface":"utun4","received_kb":10,"transmitted_kb":9},{"interface":"utun5","received_kb":10,"transmitted_kb":9},{"interface":"utun2","received_kb":0,"transmitted_kb":0},{"interface":"en4","received_kb":0,"transmitted_kb":0},{"interface":"utun1","received_kb":0,"transmitted_kb":0},{"interface":"gif0","received_kb":0,"transmitted_kb":0},{"interface":"en5","received_kb":219,"transmitted_kb":216},{"interface":"en1","received_kb":0,"transmitted_kb":0},{"interface":"awdl0","received_kb":8048,"transmitted_kb":6984},{"interface":"llw0","received_kb":0,"transmitted_kb":0},{"interface":"utun0","received_kb":0,"transmitted_kb":0},{"interface":"utun6","received_kb":0,"transmitted_kb":0},{"interface":"en3","received_kb":0,"transmitted_kb":0},{"interface":"bridge0","received_kb":0,"transmitted_kb":0},{"interface":"lo0","received_kb":46753,"transmitted_kb":46753},{"interface":"utun8","received_kb":0,"transmitted_kb":0},{"interface":"utun9","received_kb":1261692,"transmitted_kb":30595},{"interface":"en2","received_kb":0,"transmitted_kb":0}]}}]}}
+2026-05-29T16:45:38.270621Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:45:38.307100Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"list_top_processes","id":"fc_12868538604855496527","result":[{"cpu_usage":"10.4%","memory_mb":20,"name":"internalvoice","pid":"93589"},{"cpu_usage":"0.1%","memory_mb":1061,"name":"Code Helper (Plugin)","pid":"87300"},{"cpu_usage":"0.0%","memory_mb":120,"name":"Code Helper (GPU)","pid":"86622"},{"cpu_usage":"0.0%","memory_mb":1,"name":"PlugInLibraryService","pid":"66836"},{"cpu_usage":"0.0%","memory_mb":3,"name":"com.apple.hiservices-xpcservice","pid":"563"}]}]}}
+2026-05-29T16:45:38.379918Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "result" at 'tool_response.function_responses[0]': Cannot find field.
+2026-05-29T16:45:38.406386Z  INFO internalvoice: InternalVoice stopped
+2026-05-29T16:47:52.648529Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T16:47:52.943113Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T16:47:53.064221Z  INFO internalvoice: InternalVoice starting
+2026-05-29T16:47:53.526075Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T16:47:54.197189Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T16:47:55.479993Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:47:55.768620Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:47:56.766568Z DEBUG internalvoice: Received audio response from Gemini (4 bytes)
+2026-05-29T16:47:56.776735Z DEBUG internalvoice::audio: Enqueuing 2 audio samples (2 channels)
+2026-05-29T16:47:56.776896Z DEBUG internalvoice: Received audio response from Gemini (4 bytes)
+2026-05-29T16:47:56.780250Z DEBUG internalvoice::audio: Enqueuing 2 audio samples (2 channels)
+2026-05-29T16:47:56.787339Z DEBUG internalvoice: Received audio response from Gemini (10880 bytes)
+2026-05-29T16:47:56.792612Z DEBUG internalvoice::audio: Enqueuing 14992 audio samples (2 channels)
+2026-05-29T16:47:56.854518Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:56.860741Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:56.876109Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T16:47:56.882489Z DEBUG internalvoice::audio: Enqueuing 17640 audio samples (2 channels)
+2026-05-29T16:47:56.895162Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:56.901691Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:56.913996Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:56.919398Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:56.932103Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:56.937933Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:56.938232Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T16:47:56.942361Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T16:47:56.942782Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T16:47:56.947278Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T16:47:56.955319Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T16:47:56.961404Z DEBUG internalvoice::audio: Enqueuing 17640 audio samples (2 channels)
+2026-05-29T16:47:57.180390Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:57.186298Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:57.186768Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T16:47:57.192920Z DEBUG internalvoice::audio: Enqueuing 21168 audio samples (2 channels)
+2026-05-29T16:47:57.193508Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T16:47:57.198618Z DEBUG internalvoice::audio: Enqueuing 10584 audio samples (2 channels)
+2026-05-29T16:47:57.199192Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:57.204762Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:57.205279Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T16:47:57.210818Z DEBUG internalvoice::audio: Enqueuing 17640 audio samples (2 channels)
+2026-05-29T16:47:57.211309Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T16:47:57.215291Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T16:47:57.215761Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:57.220377Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:57.220832Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:57.226124Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:57.226468Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:47:57.226749Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T16:47:57.231316Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T16:47:57.241887Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T16:47:57.250645Z DEBUG internalvoice::audio: Enqueuing 28224 audio samples (2 channels)
+2026-05-29T16:47:57.277503Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T16:47:57.283920Z DEBUG internalvoice::audio: Enqueuing 21168 audio samples (2 channels)
+2026-05-29T16:47:57.430209Z DEBUG internalvoice: Received audio response from Gemini (28160 bytes)
+2026-05-29T16:47:57.437917Z DEBUG internalvoice::audio: Enqueuing 38808 audio samples (2 channels)
+2026-05-29T16:47:57.462882Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:57.468524Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:57.580444Z DEBUG internalvoice: Received audio response from Gemini (23040 bytes)
+2026-05-29T16:47:57.587479Z DEBUG internalvoice::audio: Enqueuing 31750 audio samples (2 channels)
+2026-05-29T16:47:57.587995Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T16:47:57.592254Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T16:47:57.615058Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T16:47:57.620001Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T16:47:57.704340Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T16:47:57.709814Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T16:47:57.710107Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T16:47:57.714418Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T16:47:57.714984Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T16:47:57.719337Z DEBUG internalvoice::audio: Enqueuing 10584 audio samples (2 channels)
+2026-05-29T16:47:57.719522Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T16:47:57.723158Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T16:47:57.828384Z DEBUG internalvoice: Received audio response from Gemini (28160 bytes)
+2026-05-29T16:47:57.836163Z DEBUG internalvoice::audio: Enqueuing 38808 audio samples (2 channels)
+2026-05-29T16:47:57.849431Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T16:47:57.854948Z DEBUG internalvoice::audio: Enqueuing 10584 audio samples (2 channels)
+2026-05-29T16:47:58.230637Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:47:58.522297Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:47:58.948289Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:47:59.497255Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:00.016723Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:00.507233Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:01.375751Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:01.675395Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:02.058988Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-29T16:48:02.422897Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:02.816627Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:03.674349Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:03.743061Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:04.563532Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:04.947373Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:05.569214Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:05.740094Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:06.280105Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:06.743139Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:07.700620Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:08.195881Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:08.717277Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:09.284719Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:09.765775Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:10.395570Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:10.812197Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:11.339011Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:11.861671Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:12.584670Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:13.057007Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:13.687470Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:14.170965Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:14.516460Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:14.772448Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:15.592202Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:16.054324Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:16.579839Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:16.887268Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:17.798302Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:21.530816Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:48:21.623367Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"tool_response":{"function_responses":[{"name":"get_system_diagnostics","id":"fc_10614823374574458801","result":{"cpu":{"cores":8,"load_percent":"4.8"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"55.6","total_mb":16384,"used_mb":9113},"uptime_seconds":175594}}]}}
+2026-05-29T16:48:21.623795Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:48:22.347107Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "result" at 'tool_response.function_responses[0]': Cannot find field.
+2026-05-29T16:48:22.378371Z  INFO internalvoice: InternalVoice stopped
+2026-05-29T16:59:17.961483Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T16:59:18.272414Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T16:59:18.393149Z  INFO internalvoice: InternalVoice starting
+2026-05-29T16:59:18.869812Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T16:59:19.539830Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T16:59:20.849136Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:59:21.087159Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:59:21.898998Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T16:59:23.657044Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:59:23.757189Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","id":"fc_17454059452454509207","response":{"cpu":{"cores":8,"load_percent":"4.9"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"56.7","total_mb":16384,"used_mb":9290},"uptime_seconds":176256}}]}}
+2026-05-29T16:59:23.757786Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:59:23.796625Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"list_top_processes","id":"fc_17454059452454510530","response":[{"cpu_usage":"10.8%","memory_mb":21,"name":"internalvoice","pid":"97418"},{"cpu_usage":"9.6%","memory_mb":27,"name":"biomesyncd","pid":"2619"},{"cpu_usage":"0.1%","memory_mb":1034,"name":"Code Helper (Plugin)","pid":"87300"},{"cpu_usage":"0.0%","memory_mb":3,"name":"devicecheckd","pid":"23414"},{"cpu_usage":"0.0%","memory_mb":0,"name":"appleeventsd","pid":"324"}]}]}}
+2026-05-29T16:59:23.797662Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T16:59:23.799929Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"check_network_status","id":"fc_17454059452454507757","response":{"hostname":"Supremes-MacBook-Pro.local","interfaces":[{"interface":"en4","received_kb":0,"transmitted_kb":0},{"interface":"awdl0","received_kb":8062,"transmitted_kb":6984},{"interface":"stf0","received_kb":0,"transmitted_kb":0},{"interface":"utun2","received_kb":0,"transmitted_kb":0},{"interface":"utun5","received_kb":10,"transmitted_kb":9},{"interface":"utun8","received_kb":0,"transmitted_kb":0},{"interface":"gif0","received_kb":0,"transmitted_kb":0},{"interface":"en5","received_kb":219,"transmitted_kb":216},{"interface":"llw0","received_kb":0,"transmitted_kb":0},{"interface":"utun4","received_kb":10,"transmitted_kb":9},{"interface":"utun6","received_kb":0,"transmitted_kb":0},{"interface":"en2","received_kb":0,"transmitted_kb":0},{"interface":"utun0","received_kb":0,"transmitted_kb":0},{"interface":"utun9","received_kb":1265372,"transmitted_kb":44891},{"interface":"en0","received_kb":867367,"transmitted_kb":124231},{"interface":"en3","received_kb":0,"transmitted_kb":0},{"interface":"utun7","received_kb":0,"transmitted_kb":0},{"interface":"lo0","received_kb":47226,"transmitted_kb":47226},{"interface":"utun3","received_kb":0,"transmitted_kb":877},{"interface":"en1","received_kb":0,"transmitted_kb":0},{"interface":"utun1","received_kb":0,"transmitted_kb":0},{"interface":"bridge0","received_kb":0,"transmitted_kb":0}]}}]}}
+2026-05-29T16:59:24.099675Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "response" at 'tool_response.function_responses[0]': Proto field is not repeati
+2026-05-29T16:59:24.126031Z  INFO internalvoice: InternalVoice stopped
+2026-05-29T17:04:58.693630Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T17:04:58.999440Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T17:04:59.112950Z  INFO internalvoice: InternalVoice starting
+2026-05-29T17:04:59.737402Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T17:05:00.474916Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T17:05:01.653758Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:05:03.698045Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:05:03.798962Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","id":"fc_16529613116171587488","response":{"cpu":{"cores":8,"load_percent":"4.9"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"56.1","total_mb":16384,"used_mb":9185},"uptime_seconds":176596}}]}}
+2026-05-29T17:05:03.799227Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:05:03.801510Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"check_network_status","id":"fc_16529613116171584781","response":{"hostname":"Supremes-MacBook-Pro.local","interfaces":[{"interface":"utun8","received_kb":0,"transmitted_kb":0},{"interface":"awdl0","received_kb":8079,"transmitted_kb":6989},{"interface":"en4","received_kb":0,"transmitted_kb":0},{"interface":"utun6","received_kb":0,"transmitted_kb":0},{"interface":"en1","received_kb":0,"transmitted_kb":0},{"interface":"en0","received_kb":868136,"transmitted_kb":124929},{"interface":"en3","received_kb":0,"transmitted_kb":0},{"interface":"bridge0","received_kb":0,"transmitted_kb":0},{"interface":"utun2","received_kb":0,"transmitted_kb":0},{"interface":"lo0","received_kb":47467,"transmitted_kb":47467},{"interface":"utun4","received_kb":10,"transmitted_kb":9},{"interface":"en5","received_kb":219,"transmitted_kb":216},{"interface":"en2","received_kb":0,"transmitted_kb":0},{"interface":"utun7","received_kb":0,"transmitted_kb":0},{"interface":"stf0","received_kb":0,"transmitted_kb":0},{"interface":"llw0","received_kb":0,"transmitted_kb":0},{"interface":"utun1","received_kb":0,"transmitted_kb":0},{"interface":"utun0","received_kb":0,"transmitted_kb":0},{"interface":"utun5","received_kb":10,"transmitted_kb":9},{"interface":"gif0","received_kb":0,"transmitted_kb":0},{"interface":"utun3","received_kb":0,"transmitted_kb":881},{"interface":"utun9","received_kb":1265852,"transmitted_kb":45477}]}}]}}
+2026-05-29T17:05:03.801934Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:05:03.839879Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"list_top_processes","id":"fc_16529613116171586170","response":[{"cpu_usage":"10.6%","memory_mb":20,"name":"internalvoice","pid":"99637"},{"cpu_usage":"1.0%","memory_mb":593,"name":"Code Helper (Renderer)","pid":"86625"},{"cpu_usage":"0.4%","memory_mb":120,"name":"Code Helper (GPU)","pid":"86622"},{"cpu_usage":"0.1%","memory_mb":1035,"name":"Code Helper (Plugin)","pid":"87300"},{"cpu_usage":"0.0%","memory_mb":125,"name":"mysqlsh","pid":"89573"}]}]}}
+2026-05-29T17:05:03.840258Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:05:03.949149Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "response" at 'tool_response.function_responses[0]': Proto field is not repeati
+2026-05-29T17:05:03.976751Z  INFO internalvoice: InternalVoice stopped
+2026-05-29T17:12:20.918940Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T17:12:21.223663Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T17:12:21.356863Z  INFO internalvoice: InternalVoice starting
+2026-05-29T17:12:21.997527Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T17:12:22.734224Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T17:12:24.093977Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:12:24.198298Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:12:24.739102Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:12:25.537345Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:12:27.985466Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:12:28.081329Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","id":"fc_18189661337384636678","output":{"cpu":{"cores":8,"load_percent":"5.0"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"57.3","total_mb":16384,"used_mb":9389},"uptime_seconds":177041}}]}}
+2026-05-29T17:12:28.081547Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:12:28.118107Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"list_top_processes","id":"fc_18189661337384638273","output":{"processes":[{"cpu_usage":"10.5%","memory_mb":21,"name":"internalvoice","pid":"2884"},{"cpu_usage":"0.1%","memory_mb":1036,"name":"Code Helper (Plugin)","pid":"87300"},{"cpu_usage":"0.0%","memory_mb":124,"name":"Code Helper (GPU)","pid":"86622"},{"cpu_usage":"0.0%","memory_mb":13,"name":"adprivacyd","pid":"1764"},{"cpu_usage":"0.0%","memory_mb":0,"name":"coreduetd","pid":"134"}]}}]}}
+2026-05-29T17:12:28.118892Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:12:28.121132Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"check_network_status","id":"fc_18189661337384639868","output":{"hostname":"Supremes-MacBook-Pro.local","interfaces":[{"interface":"stf0","received_kb":0,"transmitted_kb":0},{"interface":"utun8","received_kb":0,"transmitted_kb":0},{"interface":"utun6","received_kb":0,"transmitted_kb":0},{"interface":"utun0","received_kb":0,"transmitted_kb":0},{"interface":"utun3","received_kb":0,"transmitted_kb":886},{"interface":"en4","received_kb":0,"transmitted_kb":0},{"interface":"llw0","received_kb":0,"transmitted_kb":0},{"interface":"utun7","received_kb":0,"transmitted_kb":0},{"interface":"en1","received_kb":0,"transmitted_kb":0},{"interface":"lo0","received_kb":47850,"transmitted_kb":47850},{"interface":"gif0","received_kb":0,"transmitted_kb":0},{"interface":"utun5","received_kb":10,"transmitted_kb":9},{"interface":"utun1","received_kb":0,"transmitted_kb":0},{"interface":"en0","received_kb":1119585,"transmitted_kb":144993},{"interface":"en2","received_kb":0,"transmitted_kb":0},{"interface":"utun9","received_kb":1740948,"transmitted_kb":57493},{"interface":"en5","received_kb":219,"transmitted_kb":216},{"interface":"utun4","received_kb":10,"transmitted_kb":9},{"interface":"bridge0","received_kb":0,"transmitted_kb":0},{"interface":"awdl0","received_kb":8091,"transmitted_kb":6989},{"interface":"en3","received_kb":0,"transmitted_kb":0},{"interface":"utun2","received_kb":0,"transmitted_kb":0}]}}]}}
+2026-05-29T17:12:28.121443Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:12:28.394481Z  WARN internalvoice: WebSocket closed by server reason=Invalid JSON payload received. Unknown name "output" at 'tool_response.function_responses[0]': Cannot find field.
+2026-05-29T17:12:28.422817Z  INFO internalvoice: InternalVoice stopped
+2026-05-29T17:15:21.234485Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T17:15:21.544143Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T17:15:21.667275Z  INFO internalvoice: InternalVoice starting
+2026-05-29T17:15:22.350638Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T17:15:23.087043Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T17:15:24.038640Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:24.640303Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:26.799881Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:15:26.899138Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","id":"fc_890526519942096152","response":{"cpu":{"cores":8,"load_percent":"5.0"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"57.8","total_mb":16384,"used_mb":9469},"uptime_seconds":177219}}]}}
+2026-05-29T17:15:26.899506Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:15:26.939265Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"list_top_processes","id":"fc_890526519942097081","response":{"processes":[{"cpu_usage":"10.7%","memory_mb":20,"name":"internalvoice","pid":"4084"},{"cpu_usage":"0.5%","memory_mb":30,"name":"sharingd","pid":"529"},{"cpu_usage":"0.4%","memory_mb":17,"name":"rapportd","pid":"505"},{"cpu_usage":"0.3%","memory_mb":61,"name":"ControlCenter","pid":"474"},{"cpu_usage":"0.1%","memory_mb":1036,"name":"Code Helper (Plugin)","pid":"87300"}]}}]}}
+2026-05-29T17:15:26.939509Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:15:26.941782Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"check_network_status","id":"fc_890526519942098010","response":{"hostname":"Supremes-MacBook-Pro.local","interfaces":[{"interface":"utun4","received_kb":10,"transmitted_kb":9},{"interface":"stf0","received_kb":0,"transmitted_kb":0},{"interface":"en2","received_kb":0,"transmitted_kb":0},{"interface":"utun3","received_kb":0,"transmitted_kb":888},{"interface":"awdl0","received_kb":8094,"transmitted_kb":6989},{"interface":"bridge0","received_kb":0,"transmitted_kb":0},{"interface":"en5","received_kb":219,"transmitted_kb":216},{"interface":"gif0","received_kb":0,"transmitted_kb":0},{"interface":"utun2","received_kb":0,"transmitted_kb":0},{"interface":"en1","received_kb":0,"transmitted_kb":0},{"interface":"en3","received_kb":0,"transmitted_kb":0},{"interface":"utun0","received_kb":0,"transmitted_kb":0},{"interface":"utun1","received_kb":0,"transmitted_kb":0},{"interface":"utun5","received_kb":10,"transmitted_kb":9},{"interface":"en0","received_kb":1120203,"transmitted_kb":147100},{"interface":"en4","received_kb":0,"transmitted_kb":0},{"interface":"lo0","received_kb":48021,"transmitted_kb":48021},{"interface":"utun8","received_kb":0,"transmitted_kb":0},{"interface":"utun7","received_kb":0,"transmitted_kb":0},{"interface":"utun9","received_kb":1741488,"transmitted_kb":59449},{"interface":"llw0","received_kb":0,"transmitted_kb":0},{"interface":"utun6","received_kb":0,"transmitted_kb":0}]}}]}}
+2026-05-29T17:15:27.233039Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:27.986136Z DEBUG internalvoice: Received audio response from Gemini (4 bytes)
+2026-05-29T17:15:27.990469Z DEBUG internalvoice::audio: Enqueuing 2 audio samples (2 channels)
+2026-05-29T17:15:27.990786Z DEBUG internalvoice: Received audio response from Gemini (4 bytes)
+2026-05-29T17:15:27.994099Z DEBUG internalvoice::audio: Enqueuing 2 audio samples (2 channels)
+2026-05-29T17:15:28.022827Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.028871Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.122827Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.128533Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.147055Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:15:28.153645Z DEBUG internalvoice::audio: Enqueuing 17640 audio samples (2 channels)
+2026-05-29T17:15:28.224539Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.229935Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.237488Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:15:28.242506Z DEBUG internalvoice::audio: Enqueuing 10584 audio samples (2 channels)
+2026-05-29T17:15:28.242911Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:15:28.247086Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T17:15:28.287677Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.293007Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.300617Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:15:28.306374Z DEBUG internalvoice::audio: Enqueuing 17640 audio samples (2 channels)
+2026-05-29T17:15:28.306747Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:15:28.310423Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T17:15:28.341918Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:15:28.347321Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T17:15:28.368012Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.374092Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.643275Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:15:28.649310Z DEBUG internalvoice::audio: Enqueuing 21168 audio samples (2 channels)
+2026-05-29T17:15:28.649847Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.655005Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.655281Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:15:28.658843Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T17:15:28.659280Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.664335Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.664815Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.669390Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.669804Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:28.674454Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:28.674788Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:15:28.678400Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T17:15:28.690476Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:15:28.697301Z DEBUG internalvoice::audio: Enqueuing 21168 audio samples (2 channels)
+2026-05-29T17:15:28.737012Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:15:28.742140Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T17:15:28.742468Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:15:28.746532Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T17:15:28.815043Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:15:28.821865Z DEBUG internalvoice::audio: Enqueuing 28224 audio samples (2 channels)
+2026-05-29T17:15:28.916141Z DEBUG internalvoice: Received audio response from Gemini (23040 bytes)
+2026-05-29T17:15:28.923037Z DEBUG internalvoice::audio: Enqueuing 31750 audio samples (2 channels)
+2026-05-29T17:15:29.035218Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:29.040699Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:29.041493Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:15:29.047979Z DEBUG internalvoice::audio: Enqueuing 28224 audio samples (2 channels)
+2026-05-29T17:15:29.167541Z DEBUG internalvoice: Received audio response from Gemini (23040 bytes)
+2026-05-29T17:15:29.174505Z DEBUG internalvoice::audio: Enqueuing 31750 audio samples (2 channels)
+2026-05-29T17:15:29.175052Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:15:29.179505Z DEBUG internalvoice::audio: Enqueuing 10584 audio samples (2 channels)
+2026-05-29T17:15:29.216091Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:15:29.221543Z DEBUG internalvoice::audio: Enqueuing 10584 audio samples (2 channels)
+2026-05-29T17:15:29.328046Z DEBUG internalvoice: Received audio response from Gemini (28160 bytes)
+2026-05-29T17:15:29.335704Z DEBUG internalvoice::audio: Enqueuing 38808 audio samples (2 channels)
+2026-05-29T17:15:29.336074Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:15:29.340106Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T17:15:29.372777Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:15:29.377716Z DEBUG internalvoice::audio: Enqueuing 10584 audio samples (2 channels)
+2026-05-29T17:15:29.464491Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:15:29.470907Z DEBUG internalvoice::audio: Enqueuing 28224 audio samples (2 channels)
+2026-05-29T17:15:29.886116Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:15:29.891466Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T17:15:29.892007Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:29.897280Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:29.897859Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:15:29.904323Z DEBUG internalvoice::audio: Enqueuing 28224 audio samples (2 channels)
+2026-05-29T17:15:29.904755Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:15:29.910642Z DEBUG internalvoice::audio: Enqueuing 17640 audio samples (2 channels)
+2026-05-29T17:15:29.911734Z DEBUG internalvoice: Received audio response from Gemini (25600 bytes)
+2026-05-29T17:15:29.919016Z DEBUG internalvoice::audio: Enqueuing 35280 audio samples (2 channels)
+2026-05-29T17:15:29.919367Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:15:29.923402Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T17:15:29.923812Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:15:29.927759Z DEBUG internalvoice::audio: Enqueuing 7056 audio samples (2 channels)
+2026-05-29T17:15:29.928688Z DEBUG internalvoice: Received audio response from Gemini (23040 bytes)
+2026-05-29T17:15:29.935327Z DEBUG internalvoice::audio: Enqueuing 31750 audio samples (2 channels)
+2026-05-29T17:15:30.413629Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:15:30.420709Z DEBUG internalvoice::audio: Enqueuing 28224 audio samples (2 channels)
+2026-05-29T17:15:30.421247Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:15:30.426742Z DEBUG internalvoice::audio: Enqueuing 21168 audio samples (2 channels)
+2026-05-29T17:15:30.427568Z DEBUG internalvoice: Received audio response from Gemini (23040 bytes)
+2026-05-29T17:15:30.433938Z DEBUG internalvoice::audio: Enqueuing 31750 audio samples (2 channels)
+2026-05-29T17:15:30.434291Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:30.438955Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:30.439156Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:15:30.442779Z DEBUG internalvoice::audio: Enqueuing 3528 audio samples (2 channels)
+2026-05-29T17:15:30.443389Z DEBUG internalvoice: Received audio response from Gemini (23040 bytes)
+2026-05-29T17:15:30.449647Z DEBUG internalvoice::audio: Enqueuing 31750 audio samples (2 channels)
+2026-05-29T17:15:30.503540Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:15:30.508842Z DEBUG internalvoice::audio: Enqueuing 14112 audio samples (2 channels)
+2026-05-29T17:15:30.513789Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:15:30.519526Z DEBUG internalvoice::audio: Enqueuing 21168 audio samples (2 channels)
+2026-05-29T17:15:30.773100Z DEBUG internalvoice: Received audio response from Gemini (17920 bytes)
+2026-05-29T17:15:30.779408Z DEBUG internalvoice::audio: Enqueuing 24696 audio samples (2 channels)
+2026-05-29T17:15:30.780470Z DEBUG internalvoice: Received audio response from Gemini (25600 bytes)
+2026-05-29T17:15:30.787471Z DEBUG internalvoice::audio: Enqueuing 35280 audio samples (2 channels)
+2026-05-29T17:15:30.788171Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:15:30.793345Z DEBUG internalvoice::audio: Enqueuing 17640 audio samples (2 channels)
+2026-05-29T17:15:30.937660Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:31.441488Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:31.972247Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:32.426106Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:32.835507Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:33.496886Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:34.071123Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:34.595656Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:35.046625Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:35.458646Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:36.062798Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:36.553495Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:37.235699Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:37.828345Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:38.079287Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-29T17:15:38.137738Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:38.471904Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:38.838193Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:39.340233Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:40.180337Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:40.568328Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:40.828421Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:41.343769Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:42.273265Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:42.665691Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:43.077036Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:43.389150Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:44.088654Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:44.502861Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:45.078344Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:45.512665Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:46.129541Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:46.536142Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:47.207612Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:47.777715Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:48.332628Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:15:48.403128Z  INFO internalvoice: shutdown signal received
+2026-05-29T17:15:48.403264Z  INFO internalvoice: InternalVoice stopped
+2026-05-29T17:18:49.134419Z  INFO internalvoice: log system initialized log_dir=logs
+2026-05-29T17:18:49.445844Z DEBUG internalvoice::audio: Input: channels=2, sample_rate=44100, format=F32 | Output native rate: 44100
+2026-05-29T17:18:49.567239Z  INFO internalvoice: InternalVoice starting
+2026-05-29T17:18:50.142731Z  INFO internalvoice: Established Gemini Live duplex transport
+2026-05-29T17:18:50.880082Z  INFO internalvoice: Gemini Live session ready
+2026-05-29T17:18:52.018696Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:18:53.870029Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:18:53.971329Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"get_system_diagnostics","id":"fc_3846651763042194534","response":{"cpu":{"cores":8,"load_percent":"5.0"},"disks":[{"available_gb":78,"mount":"/","name":"Macintosh HD","total_gb":233},{"available_gb":78,"mount":"/System/Volumes/Data","name":"Macintosh HD","total_gb":233}],"memory":{"percent":"57.4","total_mb":16384,"used_mb":9406},"uptime_seconds":177426}}]}}
+2026-05-29T17:18:53.972127Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:18:54.010626Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"list_top_processes","id":"fc_3846651763042195063","response":{"processes":[{"cpu_usage":"10.9%","memory_mb":20,"name":"internalvoice","pid":"5188"},{"cpu_usage":"0.2%","memory_mb":1036,"name":"Code Helper (Plugin)","pid":"87300"},{"cpu_usage":"0.1%","memory_mb":125,"name":"Code Helper (GPU)","pid":"86622"},{"cpu_usage":"0.1%","memory_mb":235,"name":"Kite","pid":"599"},{"cpu_usage":"0.0%","memory_mb":973,"name":"claude","pid":"99795"}]}}]}}
+2026-05-29T17:18:54.010840Z  INFO internalvoice: Received tool calls from Gemini count=1
+2026-05-29T17:18:54.013157Z DEBUG internalvoice: Sending Gemini Live tool response payload payload={"toolResponse":{"functionResponses":[{"name":"check_network_status","id":"fc_3846651763042195592","response":{"hostname":"Supremes-MacBook-Pro.local","interfaces":[{"interface":"en1","received_kb":0,"transmitted_kb":0},{"interface":"utun5","received_kb":10,"transmitted_kb":9},{"interface":"en3","received_kb":0,"transmitted_kb":0},{"interface":"utun8","received_kb":0,"transmitted_kb":0},{"interface":"utun1","received_kb":0,"transmitted_kb":0},{"interface":"awdl0","received_kb":8099,"transmitted_kb":6989},{"interface":"bridge0","received_kb":0,"transmitted_kb":0},{"interface":"utun0","received_kb":0,"transmitted_kb":0},{"interface":"gif0","received_kb":0,"transmitted_kb":0},{"interface":"utun3","received_kb":0,"transmitted_kb":891},{"interface":"en4","received_kb":0,"transmitted_kb":0},{"interface":"utun7","received_kb":0,"transmitted_kb":0},{"interface":"stf0","received_kb":0,"transmitted_kb":0},{"interface":"utun2","received_kb":0,"transmitted_kb":0},{"interface":"utun9","received_kb":1743251,"transmitted_kb":62558},{"interface":"en5","received_kb":219,"transmitted_kb":216},{"interface":"en2","received_kb":0,"transmitted_kb":0},{"interface":"utun6","received_kb":0,"transmitted_kb":0},{"interface":"en0","received_kb":1121502,"transmitted_kb":150393},{"interface":"llw0","received_kb":0,"transmitted_kb":0},{"interface":"utun4","received_kb":10,"transmitted_kb":9},{"interface":"lo0","received_kb":48153,"transmitted_kb":48153}]}}]}}
+2026-05-29T17:18:54.246192Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:18:55.588299Z DEBUG internalvoice: Received audio response from Gemini (2600 bytes)
+2026-05-29T17:18:55.588783Z DEBUG internalvoice::audio: Enqueuing 1791 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.688203Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:18:55.689232Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.699746Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:18:55.701204Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.779183Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:18:55.780629Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.889914Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:18:55.891356Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.891564Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:18:55.891840Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.892433Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:18:55.893934Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.894277Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:18:55.894774Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.894982Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:18:55.895245Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:55.966552Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:18:55.967755Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.217747Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:18:56.219026Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.219368Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:18:56.220331Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.220529Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:18:56.221032Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.221483Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:18:56.222463Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.222698Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:18:56.223407Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.223554Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:18:56.223813Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.224307Z DEBUG internalvoice: Received audio response from Gemini (17920 bytes)
+2026-05-29T17:18:56.225947Z DEBUG internalvoice::audio: Enqueuing 12348 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.325872Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:18:56.326633Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.327045Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:18:56.327533Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.327872Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:18:56.328895Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.329251Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:18:56.329929Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.406503Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:18:56.407524Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.475369Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:18:56.477450Z DEBUG internalvoice::audio: Enqueuing 14112 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.604074Z DEBUG internalvoice: Received audio response from Gemini (23040 bytes)
+2026-05-29T17:18:56.606258Z DEBUG internalvoice::audio: Enqueuing 15875 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.734530Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:18:56.736401Z DEBUG internalvoice::audio: Enqueuing 14112 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.736537Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:18:56.736799Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.737143Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:18:56.738119Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:18:56.793676Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-29T17:18:57.456313Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:18:57.456859Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:01.453133Z DEBUG internalvoice: Received audio response from Gemini (4 bytes)
+2026-05-29T17:19:01.453226Z DEBUG internalvoice::audio: Enqueuing 1 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.455351Z DEBUG internalvoice: Received audio response from Gemini (10280 bytes)
+2026-05-29T17:19:01.456483Z DEBUG internalvoice::audio: Enqueuing 7083 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.456920Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.457860Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.458301Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.459234Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.459400Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:01.459670Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.459823Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:01.460084Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.460453Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:01.461834Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.462155Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.463087Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.463550Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:01.464726Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.464885Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:01.465147Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.465327Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:01.465587Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.466002Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.466933Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.549830Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.550835Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.559005Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.559993Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.567782Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.568769Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.581276Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:01.582713Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.583344Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:01.583618Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.618812Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.619820Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.622860Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:01.623175Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.651310Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:01.652135Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.654807Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:01.703180Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:01.704289Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.707846Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:01.708223Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.756123Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:01.756429Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.844727Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:19:01.846603Z DEBUG internalvoice::audio: Enqueuing 14112 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.979116Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:01.980618Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:01.980961Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-29T17:19:02.500568Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:02.548020Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:07.218748Z DEBUG internalvoice: Received audio response from Gemini (2600 bytes)
+2026-05-29T17:19:07.219074Z DEBUG internalvoice::audio: Enqueuing 1791 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.219463Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:07.220624Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.220919Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:07.221853Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.222135Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:07.223077Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.224659Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:07.225882Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.226864Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:07.227202Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.234608Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:07.235605Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.236319Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:07.236599Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.242602Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:07.243378Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.251397Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:07.252601Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.261798Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:07.263016Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.263439Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:07.263713Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.355431Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:07.356872Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.357146Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:07.357861Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.358202Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:07.359367Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.359584Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:07.360295Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.360543Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:07.361253Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.361572Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:07.362728Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.362984Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:07.363919Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.364297Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:07.365719Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.404265Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:19:07.406181Z DEBUG internalvoice::audio: Enqueuing 14112 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.406445Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:19:07.406937Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.408218Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:19:07.408780Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.418876Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:19:07.420769Z DEBUG internalvoice::audio: Enqueuing 14112 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.422636Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:07.423364Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.428766Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:07.429739Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.435096Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:07.436271Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.452816Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:07.482776Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:19:07.484804Z DEBUG internalvoice::audio: Enqueuing 14112 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.745666Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:07.746877Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:07.747052Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-29T17:19:08.137652Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:08.441277Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:13.424125Z DEBUG internalvoice: Received audio response from Gemini (4 bytes)
+2026-05-29T17:19:13.424214Z DEBUG internalvoice::audio: Enqueuing 1 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.424282Z DEBUG internalvoice: Received audio response from Gemini (4 bytes)
+2026-05-29T17:19:13.424319Z DEBUG internalvoice::audio: Enqueuing 1 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.426317Z DEBUG internalvoice: Received audio response from Gemini (9600 bytes)
+2026-05-29T17:19:13.427528Z DEBUG internalvoice::audio: Enqueuing 6615 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.428106Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:13.429050Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.429461Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:13.430622Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.430949Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:13.431884Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.432200Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:13.433136Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.433311Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:13.433575Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.433849Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:13.434792Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.435118Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:13.436285Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.436456Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:19:13.436947Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.437243Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.437979Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.438412Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:13.439363Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.511540Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.512316Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.545825Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:13.547395Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.547836Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.548559Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.548873Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.549588Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.550089Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:13.551475Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.551795Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:13.552729Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.552989Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.553699Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.553829Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:13.554091Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.554797Z DEBUG internalvoice: Received audio response from Gemini (25600 bytes)
+2026-05-29T17:19:13.557136Z DEBUG internalvoice::audio: Enqueuing 17640 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.557358Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:19:13.557849Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.558218Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.558931Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.559488Z DEBUG internalvoice: Received audio response from Gemini (25600 bytes)
+2026-05-29T17:19:13.561801Z DEBUG internalvoice::audio: Enqueuing 17640 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.562036Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.562745Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.562920Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:19:13.563406Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.563872Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:19:13.565705Z DEBUG internalvoice::audio: Enqueuing 14112 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.592887Z DEBUG internalvoice: Received audio response from Gemini (17920 bytes)
+2026-05-29T17:19:13.595072Z DEBUG internalvoice::audio: Enqueuing 12348 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.597270Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:13.598556Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.598747Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:13.599016Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.601411Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:13.602597Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.613284Z DEBUG internalvoice: Received audio response from Gemini (20480 bytes)
+2026-05-29T17:19:13.615203Z DEBUG internalvoice::audio: Enqueuing 14112 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.615670Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.616385Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.616653Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:13.617364Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.622238Z DEBUG internalvoice: Received audio response from Gemini (28160 bytes)
+2026-05-29T17:19:13.625004Z DEBUG internalvoice::audio: Enqueuing 19404 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.625564Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:13.626728Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.629459Z DEBUG internalvoice: Received audio response from Gemini (17920 bytes)
+2026-05-29T17:19:13.631218Z DEBUG internalvoice::audio: Enqueuing 12348 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.634040Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:13.635503Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.636430Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:13.637875Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.638074Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:13.638344Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.640753Z DEBUG internalvoice: Received audio response from Gemini (23040 bytes)
+2026-05-29T17:19:13.642839Z DEBUG internalvoice::audio: Enqueuing 15875 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.643204Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:13.644365Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:13.644543Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-29T17:19:13.688873Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:14.035521Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:22.030888Z DEBUG internalvoice: Received audio response from Gemini (2600 bytes)
+2026-05-29T17:19:22.031247Z DEBUG internalvoice::audio: Enqueuing 1791 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.031977Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:22.032922Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.034701Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:22.035715Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.038137Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:22.039152Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.039318Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:22.039589Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.039756Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:22.040020Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.040383Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:22.041556Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.075177Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:22.076170Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.132462Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:22.133882Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.164989Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:22.166103Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.429165Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:22.429641Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.430136Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:22.431083Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.431265Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:22.431535Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.431742Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:22.432013Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.432424Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:22.433592Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:22.433708Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-29T17:19:22.433772Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:22.652094Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:25.214978Z DEBUG internalvoice: Received audio response from Gemini (4 bytes)
+2026-05-29T17:19:25.215065Z DEBUG internalvoice::audio: Enqueuing 1 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.216539Z DEBUG internalvoice: Received audio response from Gemini (10280 bytes)
+2026-05-29T17:19:25.217538Z DEBUG internalvoice::audio: Enqueuing 7083 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.258077Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:25.259189Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.302466Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:25.303566Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.571412Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:25.572856Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.573222Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:25.574381Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.574812Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:25.576192Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.576651Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:25.577592Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.628380Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:25.629840Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.666669Z DEBUG internalvoice: Received audio response from Gemini (5120 bytes)
+2026-05-29T17:19:25.667248Z DEBUG internalvoice::audio: Enqueuing 3528 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.739413Z DEBUG internalvoice: Received audio response from Gemini (15360 bytes)
+2026-05-29T17:19:25.740863Z DEBUG internalvoice::audio: Enqueuing 10584 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.766330Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:25.784277Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:25.785494Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.831932Z DEBUG internalvoice: Received audio response from Gemini (10240 bytes)
+2026-05-29T17:19:25.833258Z DEBUG internalvoice::audio: Enqueuing 7056 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.838943Z DEBUG internalvoice: Received audio response from Gemini (2560 bytes)
+2026-05-29T17:19:25.839384Z DEBUG internalvoice::audio: Enqueuing 1764 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.963084Z DEBUG internalvoice: Received audio response from Gemini (7680 bytes)
+2026-05-29T17:19:25.963849Z DEBUG internalvoice::audio: Enqueuing 5292 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:25.964225Z DEBUG internalvoice: Received audio response from Gemini (12800 bytes)
+2026-05-29T17:19:25.965474Z DEBUG internalvoice::audio: Enqueuing 8820 mono samples (24000Hz → 44100Hz)
+2026-05-29T17:19:26.010206Z DEBUG internalvoice: Ignoring unparseable server message error=expected value at line 4 column 3
+2026-05-29T17:19:26.618761Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:26.871228Z DEBUG internalvoice: Ignoring unparseable server message error=unknown variant `sessionResumptionUpdate`, expected one of `setupComplete`, `serverContent`, `realtimeInput`, `toolCall` at line 2 column 27
+2026-05-29T17:19:28.383576Z  INFO internalvoice: shutdown signal received
+2026-05-29T17:19:28.413129Z  INFO internalvoice: InternalVoice stopped

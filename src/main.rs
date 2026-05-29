@@ -193,29 +193,32 @@ async fn run_service(context: Arc<ServiceContext>) -> Result<()> {
                                             debug!("Turn complete");
                                         }
                                     }
-                                    Ok(ServerMessage::RealtimeInput { media_chunks }) => {
-                                        for chunk in media_chunks {
+                                    Ok(ServerMessage::RealtimeInput { audio }) => {
+                                        if let Some(chunk) = audio {
                                             let rate = parse_audio_rate(&chunk.mime_type);
                                             if let Err(e) = context.audio_engine.play_audio(&chunk.data, rate) {
                                                 error!(error = %e, "Failed to play audio chunk");
                                             }
                                         }
                                     }
+
                                     Ok(ServerMessage::ToolCall { function_calls }) => {
                                         info!(count = function_calls.len(), "Received tool calls from Gemini");
                                         let mut responses = Vec::new();
                                         for call in function_calls {
                                             match crate::tools::call_tool(&call.name, call.args) {
                                                 Ok(response) => {
-                                                    responses.push(crate::gemini::FunctionResponse {
+responses.push(crate::gemini::FunctionResponse {
                                                         name: call.name,
+                                                        id: call.id,
                                                         response,
                                                     });
                                                 }
                                                 Err(e) => {
                                                     error!(error = %e, tool = %call.name, "Tool execution failed");
-                                                    responses.push(crate::gemini::FunctionResponse {
+responses.push(crate::gemini::FunctionResponse {
                                                         name: call.name,
+                                                        id: call.id,
                                                         response: serde_json::json!({ "error": e.to_string() }),
                                                     });
                                                 }

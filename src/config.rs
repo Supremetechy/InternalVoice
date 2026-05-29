@@ -43,6 +43,7 @@ pub enum NotificationFrequency {
 pub struct ServiceConfig {
     pub sample_interval_secs: u64,
     pub gemini_timeout_secs: u64,
+    #[serde(default = "default_gemini_model")]
     pub gemini_model: String,
 
     #[serde(default = "default_gemini_live_model")]
@@ -66,12 +67,16 @@ pub struct ServiceConfig {
     pub gemini_live_ws_url: String,
 }
 
+fn default_gemini_model() -> String {
+    "gemini-3.5-flash".to_string()
+}
+
 fn default_gemini_live_model() -> String {
-    "gemini-2.0-flash-exp".to_string()
+    "gemini-3.1-flash-live-preview".to_string()
 }
 
 fn default_gemini_live_ws_url() -> String {
-    "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService/BiDiGenerateContent?key={key}".to_string()
+    "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key={key}".to_string()
 }
 
 

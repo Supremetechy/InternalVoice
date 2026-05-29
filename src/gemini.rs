@@ -155,14 +155,14 @@ pub struct ToolResponseContent {
 }
 
 // Gemini Live tool response payload.
-// If the server rejects unknown fields (e.g. "response"), update this struct
-// field names to match the API schema.
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct FunctionResponse {
     pub name: String,
+    pub id: String,
     pub response: serde_json::Value,
 }
+
 
 
 
@@ -231,8 +231,10 @@ struct RealtimeInputMessage<'a> {
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
 struct RealtimeInput<'a> {
-    media_chunks: Vec<Blob<'a>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    audio: Option<Blob<'a>>,
 }
+
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -248,9 +250,10 @@ pub enum ServerMessage {
         generation_complete: bool,
     },
     RealtimeInput {
-        #[serde(rename = "mediaChunks")]
-        media_chunks: Vec<ResponseBlob>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        audio: Option<ResponseBlob>,
     },
+
     #[allow(dead_code)]
     ToolCall {
         #[serde(rename = "functionCalls")]
@@ -299,6 +302,7 @@ impl GeminiLiveClient {
         let setup = LiveSetup {
             setup: SetupConfigLive {
                 model: format!("models/{}", self.model),
+
                 generation_config: Some(GenerationConfigLive {
                     speech_config: Some(SpeechConfig {
                         voice_config: VoiceConfig {
@@ -307,7 +311,8 @@ impl GeminiLiveClient {
                             },
                         },
                     }),
-                    response_modalities: Some(vec!["TEXT".into(), "AUDIO".into()]),
+                    response_modalities: Some(vec!["audio".into()]),
+
                 }),
                 system_instruction: system_instruction.map(|text| SystemInstruction {
                     role: "system".into(),
@@ -328,18 +333,19 @@ impl GeminiLiveClient {
         Ok(ws_stream)
     }
 
-    pub async fn send_audio_chunk(
+pub async fn send_audio_chunk(
         ws_stream: &mut WebSocketStream<MaybeTlsStream<TcpStream>>,
         base64_audio: &str
     ) -> Result<()> {
         let input = RealtimeInputMessage {
             realtime_input: RealtimeInput {
-                media_chunks: vec![Blob {
+                audio: Some(Blob {
                     mime_type: "audio/pcm;rate=16000",
                     data: base64_audio,
-                }],
+                }),
             },
         };
+
 
         let msg = serde_json::to_string(&input)?;
         ws_stream.send(Message::Text(msg.into())).await.map_err(|e| {

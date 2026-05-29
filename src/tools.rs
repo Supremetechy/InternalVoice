@@ -99,7 +99,7 @@ fn list_top_processes(limit: usize) -> Result<serde_json::Value> {
         })
     }).collect();
 
-    Ok(serde_json::json!(top))
+    Ok(serde_json::json!({ "processes": top }))
 }
 
 fn check_network_status() -> Result<serde_json::Value> {

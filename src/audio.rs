@@ -179,24 +179,15 @@ impl AudioEngine {
 
         let resampled = resample(&f32_samples, source_rate, self.output_native_rate);
 
-        // Get channels from the native config
-        let host = cpal::default_host();
-        let device = host.default_output_device().ok_or_else(|| InternalVoiceError::Audio("Output device missing".into()))?;
-        let config = device.default_output_config().map_err(|e| InternalVoiceError::Audio(e.to_string()))?;
-        let channels = config.channels();
+        let samples: Vec<i16> = resampled
+            .iter()
+            .map(|&s| (s.clamp(-1.0, 1.0) * i16::MAX as f32) as i16)
+            .collect();
 
-        let mut final_samples: Vec<i16> = Vec::with_capacity(resampled.len() * channels as usize);
-        for s in resampled {
-            let sample = (s.clamp(-1.0, 1.0) * i16::MAX as f32) as i16;
-            for _ in 0..channels {
-                final_samples.push(sample);
-            }
-        }
-
-        tracing::debug!("Enqueuing {} audio samples ({} channels)", final_samples.len(), channels);
+        tracing::debug!("Enqueuing {} mono samples ({}Hz → {}Hz)", samples.len(), source_rate, self.output_native_rate);
 
         self.playback_tx
-            .send(final_samples)
+            .send(samples)
             .map_err(|_| InternalVoiceError::Audio("Playback thread has exited".into()))?;
 
         Ok(())
