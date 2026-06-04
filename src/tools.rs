@@ -32,6 +32,22 @@ pub fn get_tool_declarations() -> serde_json::Value {
                 "type": "object",
                 "properties": {}
             }
+        },
+        {
+            "name": "get_hardware_specs",
+            "description": "Returns detailed hardware specifications: CPU model, GPU model, VRAM or unified memory size, total RAM, free disk space, and the estimated local-LLM inference tier (T0–T9).",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        },
+        {
+            "name": "recommend_local_llms",
+            "description": "Detects host hardware and recommends three open-weight local LLMs sized to the machine — COMFORTABLE (fast/conservative), BALANCED (best quality that fits cleanly), and STRETCH (best possible, may be slow). Includes quantization, file size, speed class, AA Intelligence Index scores, and one-line install commands. Use when the user asks what AI models they can run locally, mentions Ollama, LM Studio, llama.cpp, or asks about running Qwen, Gemma, Mistral, DeepSeek, or any open-weight model.",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
         }
     ])
 }
@@ -45,6 +61,14 @@ pub fn call_tool(name: &str, args: serde_json::Value) -> Result<serde_json::Valu
             Ok(list_top_processes(limit)?)
         },
         "check_network_status" => Ok(check_network_status()?),
+        "get_hardware_specs" => {
+            let profile = crate::llm_advisor::detect_hardware();
+            Ok(crate::llm_advisor::hardware_specs_json(&profile))
+        },
+        "recommend_local_llms" => {
+            let profile = crate::llm_advisor::detect_hardware();
+            Ok(crate::llm_advisor::recommend_models(&profile))
+        },
         _ => Ok(serde_json::json!({ "error": format!("Tool '{}' not found", name) })),
     }
 }

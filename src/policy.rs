@@ -103,6 +103,9 @@ impl PolicyEngine {
         }
 
         instructions.push("When providing updates, also include suggestions on ways to optimize system resources based on the current state.");
+        instructions.push("TOOLS AVAILABLE: get_system_diagnostics, list_top_processes, check_network_status, get_hardware_specs, recommend_local_llms.");
+        instructions.push("Use get_hardware_specs when the user asks about their CPU, GPU, RAM, VRAM, or machine specs.");
+        instructions.push("Use recommend_local_llms when the user asks what local AI models they can run, mentions Ollama, LM Studio, llama.cpp, or asks about open-weight models like Qwen, Gemma, Mistral, DeepSeek, or Llama.");
 
         instructions.join("\n")
     }

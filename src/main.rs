@@ -4,6 +4,7 @@ mod config;
 mod context;
 mod error;
 mod gemini;
+mod llm_advisor;
 mod policy;
 mod platform;
 mod publisher;
